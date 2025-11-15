@@ -3,8 +3,26 @@ import Link from "next/link";
 import Button from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import SectionHeader from "@/components/ui/section-header";
+import { caseStudies } from "@/data/case-studies";
+
+const caseStudyImages = [
+  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0",
+  "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
+  "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61",
+];
 
 export default function Home() {
+  // Featured case study (first one)
+  const featuredStudy = caseStudies[0];
+  if (!featuredStudy) {
+    return null;
+  }
+  const featuredImage = caseStudyImages[0] ?? "";
+
+  // More wins (remaining 2)
+  const moreWins = caseStudies.slice(1);
+  const moreWinsImages = caseStudyImages.slice(1);
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -80,6 +98,129 @@ export default function Home() {
               </div>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Featured Case Study (Spotlight) */}
+      <section id="case-studies" className="section-gap-xxl bg-white border-y border-[#E8E6E3]">
+        <div className="container-tight px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Large image - left column on desktop, first on mobile */}
+            <div className="order-2 md:order-1">
+              <Reveal className="reveal">
+                <div className="relative w-full aspect-[4/3] rounded-2xl border border-[#E8E6E3] overflow-hidden bg-[#e5e5e5]">
+                  <Image
+                    src={featuredImage}
+                    alt={`${featuredStudy.name} case study`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                    priority
+                    decoding="async"
+                  />
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Content block - right column on desktop, second on mobile */}
+            <div className="order-1 md:order-2">
+              <Reveal className="reveal">
+                <p className="eyebrow mb-4 text-[#5F5F5F]">{featuredStudy.offerType}</p>
+                <h2 className="text-[clamp(2.5rem,5vw,3.5rem)] font-semibold leading-tight tracking-tight text-[#111111] mb-6">
+                  {featuredStudy.headline}
+                </h2>
+
+                {/* 3 KPIs in a row */}
+                <div className="grid grid-cols-3 gap-4 mb-8 pb-8 border-b border-[#E8E6E3]">
+                  <div>
+                    <p className="text-xs font-medium text-[#5F5F5F] mb-1 uppercase tracking-wide">
+                      Before
+                    </p>
+                    <p className="text-2xl font-semibold text-[#111111]">
+                      {featuredStudy.metrics.before}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-[#5F5F5F] mb-1 uppercase tracking-wide">
+                      After
+                    </p>
+                    <p className="text-2xl font-semibold text-[#111111]">
+                      {featuredStudy.metrics.after}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs font-medium text-[#5F5F5F] mb-1 uppercase tracking-wide">
+                      ROI
+                    </p>
+                    <p className="text-2xl font-semibold text-[#111111]">
+                      {featuredStudy.metrics.roi}
+                    </p>
+                  </div>
+                </div>
+
+                {/* What changed paragraph */}
+                <p className="text-lg leading-relaxed text-[#5F5F5F] mb-8">
+                  {featuredStudy.summary}
+                </p>
+
+                {/* Two CTAs */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button href="/book" variant="primary">
+                    Book Call
+                  </Button>
+                  <Button href={`/case-studies/${featuredStudy.slug}`} variant="secondary">
+                    Read Playbook
+                  </Button>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* More Wins (2 large cards) */}
+      <section className="section-gap-xxl bg-[#F7F5F2]">
+        <div className="container-section px-4 sm:px-6 lg:px-8">
+          <Reveal className="reveal mb-16">
+            <SectionHeader eyebrow="More Wins" title="Additional Case Studies" />
+          </Reveal>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {moreWins.map((study, index) => {
+              const imageUrl = moreWinsImages[index] ?? caseStudyImages[0] ?? "";
+              return (
+                <Reveal key={study.slug} className="reveal">
+                  <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#111111] overflow-hidden">
+                    <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
+                      <Image
+                        src={imageUrl}
+                        alt={`${study.name} case study`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+                    <div className="p-8">
+                      <h3 className="text-2xl font-semibold text-[#111111] mb-3">{study.name}</h3>
+                      <p className="text-xl font-medium text-[#111111] mb-2">{study.headline}</p>
+                      <p className="text-base leading-relaxed text-[#5F5F5F] mb-6">
+                        {study.summary}
+                      </p>
+                      <Link
+                        href={`/case-studies/${study.slug}`}
+                        className="inline-flex items-center text-sm font-medium text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                      >
+                        View playbook →
+                      </Link>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -159,7 +300,9 @@ export default function Home() {
                   <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#111111] flex items-center justify-center text-white font-semibold text-base border-4 border-white shadow-md flex-shrink-0">
                     3
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">Pipeline & Conversion</h3>
+                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">
+                    Pipeline & Conversion
+                  </h3>
                   <p className="text-lg leading-relaxed text-[#5F5F5F]">
                     Optimize your sales funnel to convert leads into customers.
                   </p>
@@ -265,118 +408,6 @@ export default function Home() {
                 </div>
               </Reveal>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section id="case-studies" className="section-gap-xxl bg-[#F7F5F2]">
-        <div className="container-section px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal mb-16">
-            <SectionHeader eyebrow="Results" title="Case Studies" />
-          </Reveal>
-
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-12">
-            <Reveal className="reveal">
-              <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#111111] overflow-hidden">
-                <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
-                    alt="Business workspace"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">Muslim Settify</h3>
-                  <p className="text-xl font-medium text-[#111111] mb-2">50k+ monthly revenue</p>
-                  <p className="text-base leading-relaxed text-[#5F5F5F] mb-4">
-                    We rebuilt the offer and installed appointment ops.
-                  </p>
-                  <p className="text-sm text-[#5F5F5F] italic mb-6">
-                    "MSA helped us systemize our consulting approach..."
-                  </p>
-                  <Link
-                    href="/case-studies/muslim-settify"
-                    className="inline-flex items-center text-sm font-medium text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
-                  >
-                    View playbook →
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
-            <Reveal className="reveal">
-              <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#111111] overflow-hidden">
-                <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-                    alt="Team collaboration"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">Aqib</h3>
-                  <p className="text-xl font-medium text-[#111111] mb-2">15k+ monthly revenue</p>
-                  <p className="text-base leading-relaxed text-[#5F5F5F] mb-4">
-                    Focused the funnel and fixed the close.
-                  </p>
-                  <p className="text-sm text-[#5F5F5F] italic mb-6">
-                    "The messaging framework MSA provided transformed how we positioned our
-                    courses..."
-                  </p>
-                  <Link
-                    href="/case-studies/aqib"
-                    className="inline-flex items-center text-sm font-medium text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
-                  >
-                    View playbook →
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
-            <Reveal className="reveal">
-              <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#111111] overflow-hidden">
-                <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61"
-                    alt="Professional consulting"
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-8">
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">
-                    Ustadh Abdulaziz Haqqan
-                  </h3>
-                  <p className="text-xl font-medium text-[#111111] mb-2">40k+ monthly revenue</p>
-                  <p className="text-base leading-relaxed text-[#5F5F5F] mb-4">
-                    Tuned pricing and follow‑up.
-                  </p>
-                  <p className="text-sm text-[#5F5F5F] italic mb-6">
-                    "Moving from one-on-one to group consulting while maintaining quality was our
-                    biggest challenge..."
-                  </p>
-                  <Link
-                    href="/case-studies/ustadh-abdulaziz-haqqan"
-                    className="inline-flex items-center text-sm font-medium text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
-                  >
-                    View playbook →
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
           </div>
         </div>
       </section>

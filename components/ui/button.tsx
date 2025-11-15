@@ -28,18 +28,18 @@ function getButtonClasses(variant: ButtonVariant = "primary", size: ButtonSize =
     size === "large"
       ? "px-8 py-5 text-base font-medium rounded-full"
       : "px-6 py-3 text-sm font-medium rounded-lg";
-  const base = `inline-flex items-center justify-center ${baseSize} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A0A0A] focus:ring-offset-white transition-safe shadow-sm hover:shadow-lg`;
+  const base = `inline-flex items-center justify-center ${baseSize} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white transition-safe shadow-sm hover:shadow-lg`;
 
   if (variant === "primary") {
-    // Default monochrome, emerald-accent class can override
-    return `${base} text-white bg-[#0A0A0A] hover:bg-[#000000]`;
+    // Default monochrome
+    return `${base} text-white bg-[#111111] hover:bg-[#000000]`;
   }
 
   if (variant === "secondary") {
-    return `${base} text-[#0A0A0A] border border-[#EDEDED] hover:border-[#0A0A0A] hover:text-[#000000] bg-transparent`;
+    return `${base} text-[#111111] border border-[#E8E6E3] hover:border-[#111111] hover:text-[#000000] bg-transparent`;
   }
 
-  return `${base} text-[#6B6B6B] hover:text-[#0A0A0A] bg-transparent shadow-none hover:shadow-none`;
+  return `${base} text-[#5F5F5F] hover:text-[#111111] bg-transparent shadow-none hover:shadow-none`;
 }
 
 export default function Button({

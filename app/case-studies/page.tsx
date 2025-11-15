@@ -13,9 +13,10 @@ const caseStudyImages = [
 export default function CaseStudiesPage() {
   return (
     <div className="min-h-screen bg-[#F7F5F2]">
-      <section className="section-gap-xxl">
-        <div className="container-section px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal mb-16 text-center">
+      {/* Hero with intro */}
+      <section className="section-gap-xxl border-b border-[#E8E6E3] bg-white">
+        <div className="container-tight px-4 sm:px-6 lg:px-8">
+          <Reveal className="reveal mb-12 text-center max-w-3xl mx-auto">
             <SectionHeader
               eyebrow="Results"
               title="Case Studies"
@@ -24,7 +25,34 @@ export default function CaseStudiesPage() {
             />
           </Reveal>
 
-          <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {/* Collage row of 3 images */}
+          <Reveal className="reveal">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {caseStudyImages.map((imageUrl, index) => (
+                <div
+                  key={index}
+                  className="relative w-full aspect-[4/3] rounded-xl border border-[#E8E6E3] overflow-hidden bg-[#e5e5e5]"
+                >
+                  <Image
+                    src={imageUrl}
+                    alt={`Case study ${index + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 300px"
+                    className="object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* All case studies as large panels */}
+      <section className="section-gap-xxl">
+        <div className="container-section px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((study, index) => {
               const imageUrl =
                 caseStudyImages[index < caseStudyImages.length ? index : 0] ??

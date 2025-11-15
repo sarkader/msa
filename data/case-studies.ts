@@ -12,9 +12,11 @@ export type CaseStudy = {
   testimonial: {
     quote: string;
     author: string;
+    avatar?: string;
   };
   offerType: string;
   levers: string[];
+  gallery?: string[];
 };
 
 export const caseStudies: CaseStudy[] = [
