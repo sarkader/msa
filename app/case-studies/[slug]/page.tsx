@@ -46,16 +46,15 @@ export default async function CaseStudyDetailPage({ params }: Props) {
       <section className="relative section-gap-xxl border-b border-[#E6EAF0] overflow-hidden">
         {/* Full-bleed header image with capped height and masked gradient */}
         <div
-          className="absolute inset-0 -z-10 h-[240px] md:h-[500px] overflow-hidden"
+          className="absolute inset-0 -z-10 h-[400px] md:h-[500px] overflow-hidden"
           aria-hidden="true"
         >
           <Image
             src={headerImage}
             alt=""
-            width={1200}
-            height={500}
+            fill
             sizes="100vw"
-            className="w-full h-full object-cover"
+            className="object-cover"
             style={{
               maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 70%)",
               WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, transparent 70%)",
@@ -155,22 +154,18 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                   <div className="space-y-6 relative">
                     {study.timeline.map((item) => (
                       <Reveal key={`${item.date}-${item.revenue}`} className="reveal">
-                        <div className="flex gap-4 min-h-[44px]">
+                        <div className="flex gap-4">
                           {/* Timeline dot */}
                           <div className="flex-shrink-0 w-6 h-6 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm mt-1 z-10 relative" />
                           {/* Content */}
                           <div className="flex-1 pt-0">
                             <div className="flex items-baseline gap-3 mb-1">
-                              <p className="text-[clamp(0.938rem,1.5vw,1.0625rem)] font-semibold text-[#0B1220]">
-                                {item.date}
-                              </p>
+                              <p className="text-sm font-semibold text-[#0B1220]">{item.date}</p>
                               <p className="text-lg font-semibold text-[#1E3A8A]">
                                 ${item.revenue.toLocaleString()}
                               </p>
                             </div>
-                            <p className="text-[clamp(0.938rem,1.5vw,1.0625rem)] text-[#5B6473]">
-                              {item.note}
-                            </p>
+                            <p className="text-sm text-[#5B6473]">{item.note}</p>
                           </div>
                         </div>
                       </Reveal>

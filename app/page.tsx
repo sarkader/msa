@@ -33,21 +33,26 @@ export default function Home() {
         <div className="hero-bg" aria-hidden="true" />
 
         {/* Content */}
-        <div className="site-container relative z-10 flex flex-col items-center justify-center text-center">
+        <div className="site-container relative z-10 flex flex-col items-center justify-center text-center sm:text-left">
           <Reveal className="reveal w-full">
             <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
-            <h1 className="text-[clamp(1.75rem,6vw,3.5rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
+            <h1 className="text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
               Double your revenue or your fee back.
             </h1>
-            <p className="text-[clamp(1rem,1.6vw,1.125rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
+            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
               We help Muslim founders grow courses, consulting, and productized services without
               noise—just systems that move revenue.
             </p>
-            <div className="flex flex-col w-full gap-3 sm:flex-row sm:w-auto sm:gap-4 sm:items-center justify-center items-stretch">
-              <Button href="/book" variant="primary" size="large" fullWidth>
+            <div className="flex flex-col gap-3 w-full sm:flex-row sm:gap-4 sm:w-auto sm:items-center">
+              <Button href="/book" variant="primary" size="large" className="w-full sm:w-auto">
                 Book Call
               </Button>
-              <Button href="#case-studies" variant="secondary" size="large" fullWidth>
+              <Button
+                href="#case-studies"
+                variant="secondary"
+                size="large"
+                className="w-full sm:w-auto"
+              >
                 See case studies
               </Button>
             </div>
@@ -56,22 +61,35 @@ export default function Home() {
       </section>
 
       {/* Results band - polished */}
-      <section className="border-y border-[var(--divider)] bg-[rgba(30,64,175,0.06)]">
+      <section className="bg-[rgba(30,64,175,0.06)] border-y border-[var(--divider)]">
         <div className="site-container">
-          <div className="flex flex-col items-center gap-3 py-4 sm:flex-row sm:justify-between">
-            <p className="eyebrow text-[var(--accent)]">Results</p>
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end">
-              <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-[var(--text)] min-h-[44px]">
-                Active partners 12+
-              </span>
-              <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-[var(--text)] min-h-[44px]">
-                Highest monthly jump $50k → $110k
-              </span>
-              <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-[var(--text)] min-h-[44px]">
-                Avg ROI 2.7×
-              </span>
+          <Reveal className="reveal">
+            <div className="flex flex-col items-center gap-3 py-4 sm:flex-row sm:justify-between sm:gap-4 md:gap-6 min-h-[80px] sm:py-6 md:py-8">
+              <span className="eyebrow text-sm text-center sm:text-left">Results</span>
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end w-full sm:w-auto">
+                {/* Professional metric tags */}
+                <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
+                  Active partners 12+
+                </span>
+                <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
+                  Highest monthly jump $50k → $110k
+                </span>
+                <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
+                  Avg ROI 2.7×
+                </span>
+                {/* Mini sparkline - desktop only */}
+                <div className="hidden md:flex ms-auto w-24 flex-shrink-0 items-center">
+                  <Sparkline
+                    data={featuredTimelineData}
+                    width={96}
+                    height={36}
+                    strokeColor="#1E3A8A"
+                    strokeWidth={2}
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -189,13 +207,13 @@ export default function Home() {
               return (
                 <Reveal key={study.slug} className="reveal">
                   <article className="group w-full bg-white border border-[#E6EAF0] rounded-xl hover:shadow-lg overflow-hidden">
-                    <div className="relative w-full bg-[#e5e5e5] overflow-hidden">
+                    <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
                       <Image
                         src={imageUrl}
                         alt={`${study.name} case study`}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 600px"
-                        className="h-[200px] sm:h-[220px] md:h-[280px] w-full object-cover"
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="object-cover"
                         loading="lazy"
                         decoding="async"
                       />
@@ -271,12 +289,12 @@ export default function Home() {
                     Identify bottlenecks in your offer, messaging, and sales process.
                   </p>
                   {/* Mobile: image stacks below text */}
-                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 h-[220px]">
+                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 max-h-[260px]">
                     <Image
                       src="https://images.unsplash.com/photo-1521737711867-e3b97375f902"
                       alt="Diagnosis process"
                       fill
-                      sizes="320px"
+                      sizes="(max-width: 768px) 320px, 0px"
                       className="object-cover"
                       loading="lazy"
                       decoding="async"
@@ -309,12 +327,12 @@ export default function Home() {
                     Optimize your sales funnel to convert leads into customers.
                   </p>
                   {/* Mobile: image stacks below text */}
-                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 h-[220px]">
+                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 max-h-[260px]">
                     <Image
                       src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61"
                       alt="Pipeline optimization"
                       fill
-                      sizes="320px"
+                      sizes="(max-width: 768px) 320px, 0px"
                       className="object-cover"
                       loading="lazy"
                       decoding="async"
@@ -348,12 +366,12 @@ export default function Home() {
                     Build repeatable processes for lead generation and nurturing.
                   </p>
                   {/* Mobile: image stacks below text */}
-                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 h-[220px]">
+                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 max-h-[260px]">
                     <Image
                       src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
                       alt="Systems building"
                       fill
-                      sizes="320px"
+                      sizes="(max-width: 768px) 320px, 0px"
                       className="object-cover"
                       loading="lazy"
                       decoding="async"
@@ -384,12 +402,12 @@ export default function Home() {
                     Monitor performance, iterate, and scale what works.
                   </p>
                   {/* Mobile: image stacks below text */}
-                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 h-[220px]">
+                  <div className="md:hidden relative w-full aspect-[4/3] max-w-[320px] mx-auto rounded-xl border border-[#E6EAF0] overflow-hidden mt-6 max-h-[260px]">
                     <Image
                       src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
                       alt="Scale and review"
                       fill
-                      sizes="320px"
+                      sizes="(max-width: 768px) 320px, 0px"
                       className="object-cover"
                       loading="lazy"
                       decoding="async"
@@ -523,33 +541,213 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA section - mobile first */}
-      <section aria-labelledby="cta" className="border-t border-[var(--divider)]">
-        <div className="site-container py-12 sm:py-16">
-          <p className="eyebrow text-[var(--accent)] text-center sm:text-left">Work with us</p>
-          <h2
-            id="cta"
-            className="mt-3 text-center sm:text-left text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-[#0B1220]"
-          >
-            Ready to scale?
-          </h2>
-          <p className="mt-3 text-[var(--muted)] text-center sm:text-left max-w-[42ch] leading-relaxed">
-            We install the systems that move revenue—offers, funnels, appointments, and follow‑up.
-          </p>
-          <div className="mt-6 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
-            <Link
-              href="/book"
-              className="btn btn-primary w-full sm:w-auto text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-300)] focus-visible:ring-offset-2 rounded-full"
-            >
-              Book a call
-            </Link>
-            <Link
-              href="#case-studies"
-              className="btn btn-secondary w-full sm:w-auto text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent-300)] focus-visible:ring-offset-2 rounded-full"
-            >
-              See case studies
-            </Link>
+      {/* Refined CTA - professional panel */}
+      <section className="relative section-gap-xxl bg-[#F8FAFC]">
+        {/* Faint angled shape in background */}
+        <div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(30, 58, 138, 0.08) 0%, transparent 60%), radial-gradient(circle at 80% 30%, rgba(30, 64, 175, 0.06) 0%, transparent 50%)",
+          }}
+          aria-hidden="true"
+        />
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#1E3A8A]" aria-hidden="true" />
+
+        <div className="site-container relative z-10">
+          {/* Header */}
+          <Reveal className="reveal text-center mb-12">
+            <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6 max-w-3xl mx-auto">
+              Ready to scale with a proven partner?
+            </h2>
+            <p className="text-lg md:text-xl leading-relaxed text-[#5B6473] max-w-3xl mx-auto">
+              We install the systems that move revenue—offers, funnels, appointments, and follow‑up.
+            </p>
+          </Reveal>
+
+          {/* Two-column content */}
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 mb-10">
+            {/* Left: Promise + bullets */}
+            <Reveal className="reveal">
+              <div>
+                <p className="text-lg leading-relaxed text-[#0B1220] mb-8">
+                  We partner with Muslim founders to systemize their offers, optimize their funnels,
+                  and scale revenue predictably.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
+                    <span className="text-base leading-relaxed text-[#5B6473]">
+                      Refine offers and positioning for maximum conversion
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
+                    <span className="text-base leading-relaxed text-[#5B6473]">
+                      Build automated funnels that nurture leads into customers
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <div className="mt-1 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#1E3A8A]" />
+                    <span className="text-base leading-relaxed text-[#5B6473]">
+                      Install appointment systems and follow‑up sequences
+                    </span>
+                  </li>
+                </ul>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 sm:items-center">
+                  <Button href="/book" variant="primary" size="large" className="w-full sm:w-auto">
+                    Book a call
+                  </Button>
+                  <Button
+                    href="#case-studies"
+                    variant="secondary"
+                    size="large"
+                    className="w-full sm:w-auto"
+                  >
+                    Read playbook
+                  </Button>
+                </div>
+              </div>
+            </Reveal>
+
+            {/* Right: Scenario switcher */}
+            <Reveal className="reveal">
+              <div className="scenario-tabs-container">
+                <div
+                  role="tablist"
+                  className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mb-4"
+                  aria-label="Choose your scenario"
+                >
+                  {/* Courses */}
+                  <input
+                    type="radio"
+                    id="scenario-courses"
+                    name="scenario-tabs"
+                    className="scenario-tabs-radio"
+                    defaultChecked={true}
+                    aria-controls="scenario-panel-courses"
+                  />
+                  <label htmlFor="scenario-courses" className="scenario-tab-label">
+                    Courses
+                  </label>
+                  {/* Consulting */}
+                  <input
+                    type="radio"
+                    id="scenario-consulting"
+                    name="scenario-tabs"
+                    className="scenario-tabs-radio"
+                    aria-controls="scenario-panel-consulting"
+                  />
+                  <label htmlFor="scenario-consulting" className="scenario-tab-label">
+                    Consulting
+                  </label>
+                  {/* Appointment Setting */}
+                  <input
+                    type="radio"
+                    id="scenario-appointment-setting"
+                    name="scenario-tabs"
+                    className="scenario-tabs-radio"
+                    aria-controls="scenario-panel-appointment-setting"
+                  />
+                  <label htmlFor="scenario-appointment-setting" className="scenario-tab-label">
+                    Appointment Setting
+                  </label>
+                </div>
+
+                {/* Tab panels */}
+                {(() => {
+                  const coursesStudy = caseStudies.find((s) => s.slug === "aqib");
+                  const consultingStudy = caseStudies.find(
+                    (s) => s.slug === "ustadh-abdulaziz-haqqan"
+                  );
+                  const appointmentSettingStudy = caseStudies.find(
+                    (s) => s.slug === "muslim-settify"
+                  );
+
+                  const scenarios = [
+                    { id: "courses", study: coursesStudy, label: "Courses" },
+                    { id: "consulting", study: consultingStudy, label: "Consulting" },
+                    {
+                      id: "appointment-setting",
+                      study: appointmentSettingStudy,
+                      label: "Appointment Setting",
+                    },
+                  ];
+
+                  return scenarios.map((scenario) => {
+                    const study = scenario.study;
+                    if (!study) return null;
+
+                    const timelineData = study.timeline.map((item) => item.revenue);
+                    const milestones = study.timeline.slice(-3);
+
+                    return (
+                      <div
+                        key={scenario.id}
+                        id={`scenario-panel-${scenario.id}`}
+                        className="scenario-tab-panel"
+                        role="tabpanel"
+                        aria-labelledby={`scenario-${scenario.id}`}
+                      >
+                        <div className="space-y-4 sm:space-y-6">
+                          {/* Sparkline */}
+                          <div className="bg-white rounded-xl p-3 sm:p-4 border border-[#E6EAF0] shadow-sm overflow-hidden">
+                            <Sparkline
+                              data={timelineData}
+                              width={400}
+                              height={120}
+                              strokeColor="#1E3A8A"
+                              strokeWidth={2}
+                            />
+                          </div>
+
+                          {/* Milestones */}
+                          <div className="relative pl-6">
+                            <div
+                              className="absolute left-2 top-0 bottom-0 w-px bg-[#E6EAF0]"
+                              aria-hidden="true"
+                            />
+                            <div className="space-y-4">
+                              {milestones.map((milestone) => (
+                                <div
+                                  key={`${milestone.date}-${milestone.revenue}`}
+                                  className="relative"
+                                >
+                                  <div
+                                    className="absolute left-[-26px] top-1.5 w-3 h-3 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm"
+                                    aria-hidden="true"
+                                  />
+                                  <p className="text-sm font-semibold text-[#0B1220] mb-1">
+                                    {milestone.date}
+                                  </p>
+                                  <p className="text-lg font-semibold text-[#1E3A8A] mb-1">
+                                    ${milestone.revenue.toLocaleString()}
+                                  </p>
+                                  <p className="text-sm text-[#5B6473]">{milestone.note}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  });
+                })()}
+              </div>
+            </Reveal>
           </div>
+
+          {/* Trust row */}
+          <Reveal className="reveal text-center">
+            <div className="flex items-center justify-center gap-3 text-sm text-[#5B6473] flex-wrap">
+              <span>90‑day guarantee</span>
+              <span>•</span>
+              <span>No price on site</span>
+              <span>•</span>
+              <span>Built for Muslim founders</span>
+            </div>
+          </Reveal>
         </div>
       </section>
     </div>
