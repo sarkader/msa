@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import Button from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import SectionHeader from "@/components/ui/section-header";
@@ -33,6 +32,31 @@ export default function Home() {
         {/* Premium layered blue gradients and geometric shapes */}
         <div className="hero-backdrop" aria-hidden="true" />
 
+        {/* Optional hero image overlay */}
+        <div
+          className="hidden lg:block absolute inset-0 overflow-hidden pointer-events-none z-[-15]"
+          aria-hidden="true"
+        >
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[600px] opacity-25">
+            <Image
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902"
+              alt=""
+              fill
+              sizes="800px"
+              className="object-cover"
+              style={{
+                maskImage:
+                  "radial-gradient(circle at 70% 50%, rgba(0,0,0,0.5) 0%, transparent 70%)",
+                WebkitMaskImage:
+                  "radial-gradient(circle at 70% 50%, rgba(0,0,0,0.5) 0%, transparent 70%)",
+              }}
+              priority
+              decoding="async"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
           <Reveal className="reveal w-full">
             <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
@@ -55,7 +79,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Professional Results strip */}
+      {/* Professional Results strip - aligned to hero container */}
       <section className="relative py-6 md:py-8 bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0]">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal">
@@ -74,7 +98,7 @@ export default function Home() {
                   Avg ROI 2.7×
                 </span>
                 {/* Mini sparkline - desktop only */}
-                <div className="hidden md:block ml-4 w-24 flex-shrink-0">
+                <div className="hidden md:flex ml-4 w-24 flex-shrink-0 items-center">
                   <Sparkline
                     data={featuredTimelineData}
                     width={96}
@@ -96,12 +120,12 @@ export default function Home() {
             {/* Large image - left column on desktop, first on mobile */}
             <div className="order-2 md:order-1">
               <Reveal className="reveal">
-                <div className="relative w-full aspect-[4/3] rounded-2xl border border-[#E6EAF0] overflow-hidden bg-[#e5e5e5]">
+                <div className="relative w-full aspect-[4/3] max-w-[560px] mx-auto md:mx-0 rounded-2xl border border-[#E6EAF0] overflow-hidden bg-[#e5e5e5]">
                   <Image
                     src={featuredImage}
                     alt={`${featuredStudy.name} case study`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 100vw, 560px"
                     className="object-cover"
                     priority
                     decoding="async"
@@ -203,14 +227,14 @@ export default function Home() {
                         src={imageUrl}
                         alt={`${study.name} case study`}
                         fill
-                        sizes="(max-width: 768px) 100vw, 50vw"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="p-8">
+                    <div className="p-10">
                       <h3 className="text-2xl font-semibold text-[#0B1220] mb-3">{study.name}</h3>
                       <p className="text-xl font-medium text-[#0B1220] mb-2">{study.headline}</p>
                       <p className="text-base leading-relaxed text-[#5B6473] mb-6">
@@ -528,186 +552,210 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Interactive Case Study Timeline CTA */}
-      <section className="relative section-gap-xxl overflow-hidden">
-        {/* Subtle blue gradient background */}
+      {/* Interactive "Choose your scenario" CTA */}
+      <section className="relative section-gap-xxl bg-[#F8FAFC]">
+        {/* Faint angled shape in background */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-[0.08] pointer-events-none"
           style={{
             background:
-              "linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%), radial-gradient(circle at 30% 50%, rgba(30, 64, 175, 0.25) 0%, transparent 60%), conic-gradient(from 180deg at 70% 30%, rgba(27, 51, 128, 0.15) 0deg, transparent 120deg)",
+              "linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, transparent 60%), radial-gradient(circle at 80% 30%, rgba(30, 64, 175, 0.08) 0%, transparent 50%)",
           }}
           aria-hidden="true"
         />
-        {/* Supporting image behind content - desktop only */}
-        {caseStudyImages[0] && (
-          <div
-            className="hidden lg:block absolute inset-0 overflow-hidden pointer-events-none"
-            aria-hidden="true"
-          >
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-20">
-              <Image
-                src={caseStudyImages[0]}
-                alt=""
-                fill
-                sizes="600px"
-                className="object-cover"
-                style={{
-                  maskImage:
-                    "radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, transparent 70%)",
-                  WebkitMaskImage:
-                    "radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, transparent 70%)",
-                }}
-                loading="lazy"
-                decoding="async"
-                aria-hidden="true"
-              />
-            </div>
-          </div>
-        )}
+        {/* Top accent line */}
+        <div className="absolute top-0 left-0 right-0 h-0.5 bg-[#1E3A8A]" aria-hidden="true" />
+
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <Reveal className="reveal max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-white mb-6">
+            <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6">
               Ready to scale with a proven partner?
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed text-white/95">
+            <p className="text-lg md:text-xl leading-relaxed text-[#5B6473]">
               We install the systems that move revenue—offers, funnels, appointments, and follow‑up.
             </p>
           </Reveal>
 
-          {/* CSS-only tabs */}
-          <div className="tabs-container max-w-5xl mx-auto">
+          {/* CSS-only tabs - Choose your scenario */}
+          <div className="scenario-tabs-container max-w-5xl mx-auto">
             <div
               role="tablist"
               className="flex flex-wrap gap-2 justify-center mb-0"
-              aria-label="Case studies"
+              aria-label="Choose your scenario"
             >
-              {caseStudies.map((study) => (
-                <React.Fragment key={study.slug}>
-                  <input
-                    type="radio"
-                    id={`tab-${study.slug}`}
-                    name="case-study-tabs"
-                    className="tabs-radio"
-                    defaultChecked={study.slug === "muslim-settify"}
-                    aria-controls={`panel-${study.slug}`}
-                  />
-                  <label htmlFor={`tab-${study.slug}`} className="tab-label">
-                    {study.name}
-                  </label>
-                </React.Fragment>
-              ))}
+              {/* Courses */}
+              <input
+                type="radio"
+                id="scenario-courses"
+                name="scenario-tabs"
+                className="scenario-tabs-radio"
+                defaultChecked={true}
+                aria-controls="scenario-panel-courses"
+              />
+              <label htmlFor="scenario-courses" className="scenario-tab-label">
+                Courses
+              </label>
+              {/* Consulting */}
+              <input
+                type="radio"
+                id="scenario-consulting"
+                name="scenario-tabs"
+                className="scenario-tabs-radio"
+                aria-controls="scenario-panel-consulting"
+              />
+              <label htmlFor="scenario-consulting" className="scenario-tab-label">
+                Consulting
+              </label>
+              {/* Appointment Setting */}
+              <input
+                type="radio"
+                id="scenario-appointment-setting"
+                name="scenario-tabs"
+                className="scenario-tabs-radio"
+                aria-controls="scenario-panel-appointment-setting"
+              />
+              <label htmlFor="scenario-appointment-setting" className="scenario-tab-label">
+                Appointment Setting
+              </label>
             </div>
 
-            {/* Tab panels */}
-            {caseStudies.map((study) => {
-              const timelineData = study.timeline.map((item) => item.revenue);
-              const milestones = study.timeline.slice(-3); // Last 3 milestones
+            {/* Tab panels - map scenarios to case studies */}
+            {(() => {
+              // Map scenarios to case studies
+              const coursesStudy = caseStudies.find((s) => s.slug === "aqib");
+              const consultingStudy = caseStudies.find((s) => s.slug === "ustadh-abdulaziz-haqqan");
+              const appointmentSettingStudy = caseStudies.find((s) => s.slug === "muslim-settify");
 
-              return (
-                <div
-                  key={study.slug}
-                  id={`panel-${study.slug}`}
-                  className="tab-panel"
-                  role="tabpanel"
-                  aria-labelledby={`tab-${study.slug}`}
-                >
-                  <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                    {/* Left column */}
-                    <div className="md:order-1">
-                      {/* Result headline */}
-                      <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-                        {study.headline}
-                      </h3>
+              const scenarios = [
+                { id: "courses", study: coursesStudy, label: "Courses" },
+                { id: "consulting", study: consultingStudy, label: "Consulting" },
+                {
+                  id: "appointment-setting",
+                  study: appointmentSettingStudy,
+                  label: "Appointment Setting",
+                },
+              ];
 
-                      {/* 3 KPIs */}
-                      <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-white/20">
-                        <div>
-                          <p className="text-xs font-medium text-white/70 mb-1 uppercase tracking-wide">
-                            Before
-                          </p>
-                          <p className="text-xl font-semibold text-white">{study.metrics.before}</p>
+              return scenarios.map((scenario) => {
+                const study = scenario.study;
+                if (!study) return null;
+
+                const timelineData = study.timeline.map((item) => item.revenue);
+                const milestones = study.timeline.slice(-3); // Last 3 milestones
+
+                return (
+                  <div
+                    key={scenario.id}
+                    id={`scenario-panel-${scenario.id}`}
+                    className="scenario-tab-panel"
+                    role="tabpanel"
+                    aria-labelledby={`scenario-${scenario.id}`}
+                  >
+                    <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                      {/* Left column */}
+                      <div className="md:order-1">
+                        {/* Result headline */}
+                        <h3 className="text-2xl md:text-3xl font-semibold text-[#0B1220] mb-6">
+                          {study.headline}
+                        </h3>
+
+                        {/* 3 KPIs */}
+                        <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-[#E6EAF0]">
+                          <div>
+                            <p className="text-xs font-medium text-[#5B6473] mb-1 uppercase tracking-wide">
+                              Before
+                            </p>
+                            <p className="text-xl font-semibold text-[#0B1220]">
+                              {study.metrics.before}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-xs font-medium text-[#5B6473] mb-1 uppercase tracking-wide">
+                              After
+                            </p>
+                            <p className="text-xl font-semibold text-[#0B1220]">
+                              {study.metrics.after}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-xs font-medium text-[#5B6473] mb-1 uppercase tracking-wide">
+                              ROI
+                            </p>
+                            <p className="text-xl font-semibold text-[#1E3A8A]">
+                              {study.metrics.roi}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <p className="text-xs font-medium text-white/70 mb-1 uppercase tracking-wide">
-                            After
-                          </p>
-                          <p className="text-xl font-semibold text-white">{study.metrics.after}</p>
-                        </div>
-                        <div>
-                          <p className="text-xs font-medium text-white/70 mb-1 uppercase tracking-wide">
-                            ROI
-                          </p>
-                          <p className="text-xl font-semibold text-white">{study.metrics.roi}</p>
+
+                        {/* What we change */}
+                        <p className="text-base leading-relaxed text-[#5B6473] mb-6">
+                          {study.levers.slice(0, 2).join(". ")}.{" "}
+                          {study.levers.slice(2, 4).join(". ")}.
+                        </p>
+
+                        {/* CTA row */}
+                        <div className="flex flex-col sm:flex-row gap-4">
+                          <Button href="/book" variant="primary">
+                            Book a call
+                          </Button>
+                          <Button href={`/case-studies/${study.slug}`} variant="secondary">
+                            Read playbook
+                          </Button>
                         </div>
                       </div>
 
-                      {/* CTA row */}
-                      <div className="flex flex-col sm:flex-row gap-4">
-                        <Button
-                          href="/book"
-                          variant="primary"
-                          className="bg-white text-[#1E3A8A] hover:bg-white/95 hover:text-[#1E40AF] focus:ring-white/50"
-                        >
-                          Book a call
-                        </Button>
-                        <Button href={`/case-studies/${study.slug}`} variant="ghost">
-                          Read playbook
-                        </Button>
-                      </div>
-                    </div>
+                      {/* Right column */}
+                      <div className="space-y-6 md:order-2">
+                        {/* Sparkline */}
+                        <div className="bg-white rounded-xl p-4 border border-[#E6EAF0] shadow-sm">
+                          <Sparkline
+                            data={timelineData}
+                            width={400}
+                            height={120}
+                            strokeColor="#1E3A8A"
+                            strokeWidth={2}
+                          />
+                        </div>
 
-                    {/* Right column */}
-                    <div className="space-y-6 md:order-2">
-                      {/* Sparkline */}
-                      <div className="bg-white/5 rounded-xl p-4 border border-white/10">
-                        <Sparkline
-                          data={timelineData}
-                          width={400}
-                          height={120}
-                          strokeColor="#FFFFFF"
-                          strokeWidth={2}
-                        />
-                      </div>
-
-                      {/* Milestones */}
-                      <div className="relative pl-6">
-                        <div
-                          className="absolute left-2 top-0 bottom-0 w-px bg-white/20"
-                          aria-hidden="true"
-                        />
-                        <div className="space-y-4">
-                          {milestones.map((milestone) => (
-                            <div
-                              key={`${milestone.date}-${milestone.revenue}`}
-                              className="relative"
-                            >
+                        {/* Milestones */}
+                        <div className="relative pl-6">
+                          <div
+                            className="absolute left-2 top-0 bottom-0 w-px bg-[#E6EAF0]"
+                            aria-hidden="true"
+                          />
+                          <div className="space-y-4">
+                            {milestones.map((milestone) => (
                               <div
-                                className="absolute left-[-26px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#1E3A8A] shadow-sm"
-                                aria-hidden="true"
-                              />
-                              <p className="text-sm font-semibold text-white mb-1">
-                                {milestone.date}
-                              </p>
-                              <p className="text-lg font-semibold text-white/90 mb-1">
-                                ${milestone.revenue.toLocaleString()}
-                              </p>
-                              <p className="text-sm text-white/70">{milestone.note}</p>
-                            </div>
-                          ))}
+                                key={`${milestone.date}-${milestone.revenue}`}
+                                className="relative"
+                              >
+                                <div
+                                  className="absolute left-[-26px] top-1.5 w-3 h-3 rounded-full bg-[#1E3A8A] border-2 border-white shadow-sm"
+                                  aria-hidden="true"
+                                />
+                                <p className="text-sm font-semibold text-[#0B1220] mb-1">
+                                  {milestone.date}
+                                </p>
+                                <p className="text-lg font-semibold text-[#1E3A8A] mb-1">
+                                  ${milestone.revenue.toLocaleString()}
+                                </p>
+                                <p className="text-sm text-[#5B6473]">{milestone.note}</p>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              });
+            })()}
           </div>
 
           {/* Trust row */}
           <Reveal className="reveal mt-10 text-center">
-            <div className="flex items-center justify-center gap-3 text-sm text-white/80 flex-wrap">
+            <div className="flex items-center justify-center gap-3 text-sm text-[#5B6473] flex-wrap">
               <span>90‑day guarantee</span>
               <span>•</span>
               <span>No price on site</span>
