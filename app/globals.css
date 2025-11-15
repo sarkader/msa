@@ -441,9 +441,10 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 14px; /* horizontal padding fix */
-    margin-right: 12px; /* space away from the right edge */
-    border-radius: 9999px; /* pill */
-    min-height: 44px; /* touch target */
+    padding: 10px 14px;
+    border-radius: 12px; /* rectangular w/ rounded corners */
+    margin-right: 8px; /* minimal space from the right edge */
+    min-height: 44px;
+    white-space: nowrap; /* prevent text wrapping */
   }
 }
