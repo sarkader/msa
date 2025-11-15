@@ -27,51 +27,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero - TryArchitect/Cluely style */}
-      <section
-        className="hero-wrap relative overflow-x-hidden"
-        style={{
-          paddingTop: "clamp(6rem, 12vw, 10rem)",
-          paddingBottom: "clamp(4.5rem, 9vw, 7.5rem)",
-        }}
-      >
-        {/* Background layers - always visible */}
-        <div className="hero-bg absolute inset-0 pointer-events-none z-0" aria-hidden="true">
-          {/* Soft layered gradients - no animation */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(1000px 600px at 20% 20%, rgba(30, 58, 138, 0.15) 0%, transparent 55%), radial-gradient(900px 500px at 80% 30%, rgba(30, 64, 175, 0.12) 0%, transparent 60%), conic-gradient(from 180deg at 50% 50%, rgba(30, 58, 138, 0.08) 0deg, transparent 120deg, rgba(168, 180, 230, 0.06) 240deg, transparent 360deg)",
-              filter: "blur(28px)",
-              opacity: 0.85,
-            }}
-            aria-hidden="true"
-          />
-          {/* Image overlay - desktop only */}
-          <div className="hidden md:block absolute inset-0" aria-hidden="true">
-            <Image
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-              alt=""
-              fill
-              sizes="100vw"
-              className="object-cover"
-              style={{
-                maskImage:
-                  "radial-gradient(circle at 60% 40%, rgba(255,255,255,.85) 0%, transparent 60%)",
-                WebkitMaskImage:
-                  "radial-gradient(circle at 60% 40%, rgba(255,255,255,.85) 0%, transparent 60%)",
-                opacity: 0.22,
-              }}
-              priority
-              decoding="async"
-              aria-hidden="true"
-            />
-          </div>
-        </div>
+      {/* Hero - animated gradient backdrop */}
+      <section className="hero-wrap">
+        {/* Animated gradient backdrop - always visible */}
+        <div className="hero-bg" aria-hidden="true" />
 
         {/* Content */}
-        <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+        <div className="site-container relative z-10 flex flex-col items-center justify-center text-center">
           <Reveal className="reveal w-full">
             <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
             <h1 className="text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
@@ -94,20 +56,20 @@ export default function Home() {
       </section>
 
       {/* Results band - polished */}
-      <section className="relative bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0] overflow-x-hidden">
-        <div className="container-tight px-4 sm:px-6 lg:px-8">
+      <section className="bg-[rgba(30,64,175,0.06)] border-y border-[var(--divider)]">
+        <div className="site-container">
           <Reveal className="reveal">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 min-h-[80px] py-4 sm:py-6 md:py-8">
               <span className="eyebrow text-sm text-center sm:text-left">Results</span>
               <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
                 {/* Professional metric tags */}
-                <span className="inline-flex items-center px-3 sm:px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm min-h-[44px]">
+                <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
                   Active partners 12+
                 </span>
-                <span className="inline-flex items-center px-3 sm:px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm min-h-[44px]">
+                <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
                   Highest monthly jump $50k → $110k
                 </span>
-                <span className="inline-flex items-center px-3 sm:px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm min-h-[44px]">
+                <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
                   Avg ROI 2.7×
                 </span>
                 {/* Mini sparkline - desktop only */}
@@ -128,7 +90,7 @@ export default function Home() {
 
       {/* Featured Case Study (Spotlight) */}
       <section id="case-studies" className="section-gap-xxl bg-white border-y border-[#E6EAF0]">
-        <div className="container-tight px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Large image - left column on desktop, first on mobile */}
             <div className="order-2 md:order-1">
@@ -229,12 +191,12 @@ export default function Home() {
 
       {/* More Wins (2 large cards) */}
       <section className="section-gap-xxl bg-[#F8FAFC]">
-        <div className="container-section px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <Reveal className="reveal mb-16">
             <SectionHeader eyebrow="More Results" title="More Wins" />
           </Reveal>
 
-          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
             {moreWins.map((study, index) => {
               const imageUrl = moreWinsImages[index] ?? caseStudyImages[0] ?? "";
               return (
@@ -279,7 +241,7 @@ export default function Home() {
 
       {/* Guarantee */}
       <section className="section-gap-xxl bg-[#F8FAFC]">
-        <div className="container-tight px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <Reveal className="reveal">
             <div className="bg-white border-l-4 border-[#1E3A8A] p-12 rounded-xl shadow-xl">
               <div className="grid md:grid-cols-2 gap-12">
@@ -304,7 +266,7 @@ export default function Home() {
 
       {/* Process - Staggered two-column layout */}
       <section className="section-gap-xxl border-y border-[#E6EAF0] bg-white">
-        <div className="container-tight px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <Reveal className="reveal mb-16">
             <SectionHeader eyebrow="How We Work" title="Process" />
           </Reveal>
@@ -467,7 +429,7 @@ export default function Home() {
 
       {/* FAQs */}
       <section className="section-gap-xxl border-y border-[#E6EAF0] bg-white">
-        <div className="container-tight px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <Reveal className="reveal mb-20">
             <SectionHeader eyebrow="Questions" title="Frequently Asked Questions" />
           </Reveal>
@@ -588,7 +550,7 @@ export default function Home() {
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#1E3A8A]" aria-hidden="true" />
 
-        <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10">
           {/* Header */}
           <Reveal className="reveal max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6">
@@ -600,7 +562,7 @@ export default function Home() {
           </Reveal>
 
           {/* Two-column content */}
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 max-w-6xl mx-auto mb-10">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 mb-10">
             {/* Left: Promise + bullets */}
             <Reveal className="reveal">
               <div>
