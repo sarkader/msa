@@ -430,4 +430,20 @@ body {
   .hero-wrap {
     overflow-x: clip;
   }
+
+  /* Navbar mobile padding and CTA styling */
+  [data-mobile-nav] {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  [data-mobile-nav-cta] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px; /* horizontal padding fix */
+    margin-right: 12px; /* space away from the right edge */
+    border-radius: 9999px; /* pill */
+    min-height: 44px; /* touch target */
+  }
 }

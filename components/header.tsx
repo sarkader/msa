@@ -7,6 +7,7 @@ export default function Header() {
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8"
         aria-label="Main navigation"
+        data-mobile-nav
       >
         <Logo />
         <div className="flex items-center gap-4">
@@ -19,6 +20,7 @@ export default function Header() {
           <Link
             href="/book"
             className="inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium text-white bg-[#1E3A8A] transition-colors hover:bg-[#1E40AF] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8B4E6] focus:ring-offset-white shadow-sm hover:shadow-md"
+            data-mobile-nav-cta
           >
             Book Call
           </Link>
