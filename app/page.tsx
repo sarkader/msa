@@ -1,20 +1,23 @@
-import Link from "next/link";
+import Image from "next/image";
 import Button from "@/components/ui/button";
 import SectionHeader from "@/components/ui/section-header";
-import { caseStudies } from "@/data/case-studies";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative section-gap-xl overflow-hidden bg-[#faf8f5]">
-        {/* Gradient background via ::before pseudo-element for zero CLS */}
+        {/* Gradient background with layered radial-gradients + noise for zero CLS */}
         <div
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-10 opacity-90"
           style={{
-            background:
-              "linear-gradient(135deg, #fce4ec 0%, #fff3e0 25%, #f3e5f5 50%, #e8f5e9 100%)",
-            filter: "blur(32px)",
+            background: `
+              radial-gradient(circle at 20% 50%, rgba(252, 228, 236, 0.8) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(255, 243, 224, 0.8) 0%, transparent 50%),
+              radial-gradient(circle at 50% 20%, rgba(243, 229, 245, 0.8) 0%, transparent 50%),
+              linear-gradient(135deg, #fce4ec 0%, #fff3e0 25%, #f3e5f5 50%, #e8f5e9 100%)
+            `,
+            filter: "blur(28px)",
             transform: "scale(1.1)",
           }}
           aria-hidden="true"
@@ -194,22 +197,68 @@ export default function Home() {
           <SectionHeader eyebrow="Results" title="Case Studies" className="mb-16" />
 
           <div className="grid gap-8 md:grid-cols-3 mb-12">
-            {caseStudies.map((study) => (
-              <article
-                key={study.slug}
-                className="group w-full max-w-[400px] mx-auto md:mx-0 p-6 bg-white border border-[rgba(17,17,17,0.08)] rounded-lg transition-safe hover:-translate-y-2 hover:shadow-lg hover:border-[#0F766E] hover:backdrop-blur-sm"
-              >
-                <h3 className="text-xl font-semibold text-[#111111] mb-2">{study.name}</h3>
-                <p className="text-lg font-medium text-[#111111] mb-3">{study.headline}</p>
-                <p className="text-base leading-relaxed text-[#525252] mb-4">{study.summary}</p>
-                <Link
-                  href={`/case-studies/${study.slug}`}
-                  className="inline-flex items-center text-sm font-medium text-[#0F766E] hover:text-[#0d6361] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0F766E] focus:ring-offset-white rounded transition-safe"
-                >
+            <article className="group w-full max-w-[400px] mx-auto md:mx-0 bg-white border border-[rgba(17,17,17,0.08)] rounded-lg transition-safe hover:-translate-y-2 hover:shadow-lg hover:border-[#0F766E] overflow-hidden">
+              <div className="relative w-full h-48 bg-[#e5e5e5]">
+                <Image
+                  src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
+                  alt="Business workspace"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3">Muslim Settify</h3>
+                <p className="text-lg leading-relaxed text-[#525252] mb-4">50k+ monthly revenue.</p>
+                <Button href="/case-studies" variant="subtle" size="default" className="text-sm">
                   View Playbook →
-                </Link>
-              </article>
-            ))}
+                </Button>
+              </div>
+            </article>
+            <article className="group w-full max-w-[400px] mx-auto md:mx-0 bg-white border border-[rgba(17,17,17,0.08)] rounded-lg transition-safe hover:-translate-y-2 hover:shadow-lg hover:border-[#0F766E] overflow-hidden">
+              <div className="relative w-full h-48 bg-[#e5e5e5]">
+                <Image
+                  src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                  alt="Team collaboration"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3">Aqib</h3>
+                <p className="text-lg leading-relaxed text-[#525252] mb-4">15k+ monthly revenue.</p>
+                <Button href="/case-studies" variant="subtle" size="default" className="text-sm">
+                  View Playbook →
+                </Button>
+              </div>
+            </article>
+            <article className="group w-full max-w-[400px] mx-auto md:mx-0 bg-white border border-[rgba(17,17,17,0.08)] rounded-lg transition-safe hover:-translate-y-2 hover:shadow-lg hover:border-[#0F766E] overflow-hidden">
+              <div className="relative w-full h-48 bg-[#e5e5e5]">
+                <Image
+                  src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61"
+                  alt="Professional consulting"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#111111] mb-3">
+                  Ustadh Abdulaziz Haqqan
+                </h3>
+                <p className="text-lg leading-relaxed text-[#525252] mb-4">40k+ monthly revenue.</p>
+                <Button href="/case-studies" variant="subtle" size="default" className="text-sm">
+                  View Playbook →
+                </Button>
+              </div>
+            </article>
           </div>
         </div>
       </section>
