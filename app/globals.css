@@ -4,14 +4,14 @@
   --background: #f7f5f2;
   --surface: #f7f5f2;
   --surface-2: #ffffff;
-  --foreground: #111111;
-  --text: #111111;
+  --foreground: #0a0a0a;
+  --text: #0a0a0a;
   --muted: #5f5f5f;
   --muted-light: #a3a3a3;
   --border: #e8e6e3;
   --divider: #e8e6e3;
-  --accent: #111111;
-  --accent-hover: #000000;
+  --accent: #1e3a8a;
+  --accent-hover: #1e40af;
   --accent-emerald: #0f766e;
   --accent-emerald-hover: #0d6361;
 }
@@ -151,13 +151,13 @@ body {
 
 .hero-backdrop::before {
   background:
-    radial-gradient(circle at 25% 35%, rgba(95, 95, 95, 0.12) 0%, transparent 55%),
-    radial-gradient(circle at 75% 65%, rgba(120, 110, 100, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 25% 35%, rgba(30, 58, 138, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 75% 65%, rgba(30, 64, 175, 0.08) 0%, transparent 50%),
     conic-gradient(
       from 180deg at 50% 50%,
-      rgba(110, 100, 90, 0.06) 0deg,
+      rgba(30, 58, 138, 0.06) 0deg,
       transparent 120deg,
-      rgba(95, 85, 75, 0.06) 240deg,
+      rgba(37, 99, 235, 0.06) 240deg,
       transparent 360deg
     );
   filter: blur(28px);
@@ -166,7 +166,7 @@ body {
 }
 
 .hero-backdrop::after {
-  background: radial-gradient(circle at 80% 20%, rgba(230, 225, 220, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
   mask-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 1) 0%, transparent 60%);
   -webkit-mask-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 1) 0%, transparent 60%);
   opacity: 0.7;

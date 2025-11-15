@@ -3,6 +3,7 @@ import Link from "next/link";
 import Button from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import SectionHeader from "@/components/ui/section-header";
+import Sparkline from "@/components/ui/sparkline";
 import { caseStudies } from "@/data/case-studies";
 
 const caseStudyImages = [
@@ -18,6 +19,7 @@ export default function Home() {
     return null;
   }
   const featuredImage = caseStudyImages[0] ?? "";
+  const featuredTimelineData = featuredStudy.timeline.map((item) => item.revenue);
 
   // More wins (remaining 2)
   const moreWins = caseStudies.slice(1);
@@ -33,7 +35,7 @@ export default function Home() {
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
           <Reveal className="reveal w-full">
             <p className="eyebrow mb-4 text-[#5F5F5F] tracking-wider">Muslim Scale Accelerator</p>
-            <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#111111] mb-6 max-w-[680px] mx-auto">
+            <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0A0A0A] mb-6 max-w-[680px] mx-auto">
               Double your revenue or your fee back.
             </h1>
             <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5F5F5F] mb-10 max-w-[680px] mx-auto">
@@ -54,14 +56,14 @@ export default function Home() {
           <Reveal className="reveal w-full max-w-3xl mx-auto mt-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 border-t border-[#E8E6E3]">
               <div>
-                <p className="text-3xl font-semibold text-[#111111] mb-2">12+</p>
+                <p className="text-3xl font-semibold text-[#0A0A0A] mb-2">12+</p>
                 <p className="text-sm text-[#5F5F5F]">Active Partners</p>
               </div>
               <div className="flex items-center justify-center">
                 <span className="text-[#a3a3a3]">•</span>
               </div>
               <div>
-                <p className="text-3xl font-semibold text-[#111111] mb-2">$50K→$110K</p>
+                <p className="text-3xl font-semibold text-[#0A0A0A] mb-2">$50K→$110K</p>
                 <p className="text-sm text-[#5F5F5F]">Largest monthly jump</p>
               </div>
               <div className="flex items-center justify-center sm:hidden">
@@ -71,7 +73,7 @@ export default function Home() {
                 <span className="text-[#a3a3a3]">•</span>
               </div>
               <div>
-                <p className="text-3xl font-semibold text-[#111111] mb-2">2.7×</p>
+                <p className="text-3xl font-semibold text-[#1E3A8A] mb-2">2.7×</p>
                 <p className="text-sm text-[#5F5F5F]">Average ROI</p>
               </div>
             </div>
@@ -86,13 +88,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
               <span className="eyebrow text-[#5F5F5F] text-sm">Proof</span>
               <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center sm:justify-end">
-                <span className="text-sm md:text-base text-[#111111]">Muslim Settify 50k/mo</span>
+                <span className="text-sm md:text-base text-[#0A0A0A]">Muslim Settify 50k/mo</span>
                 <span className="text-[#a3a3a3]">•</span>
-                <span className="text-sm md:text-base text-[#111111]">Aqib 15k+</span>
+                <span className="text-sm md:text-base text-[#0A0A0A]">Aqib 15k+</span>
                 <span className="text-[#a3a3a3]">•</span>
-                <span className="text-sm md:text-base text-[#111111]">Ustadh A. Haqqan 40k+</span>
+                <span className="text-sm md:text-base text-[#0A0A0A]">Ustadh A. Haqqan 40k+</span>
                 <span className="hidden md:inline text-[#a3a3a3]">•</span>
-                <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-[#111111] border border-[#E8E6E3] rounded-full bg-white">
+                <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-[#0A0A0A] border border-[#E8E6E3] rounded-full bg-white">
                   90‑Day Guarantee
                 </span>
               </div>
@@ -126,7 +128,7 @@ export default function Home() {
             <div className="order-1 md:order-2">
               <Reveal className="reveal">
                 <p className="eyebrow mb-4 text-[#5F5F5F]">{featuredStudy.offerType}</p>
-                <h2 className="text-[clamp(2.5rem,5vw,3.5rem)] font-semibold leading-tight tracking-tight text-[#111111] mb-6">
+                <h2 className="text-[clamp(2.5rem,5vw,3.5rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A] mb-6">
                   {featuredStudy.headline}
                 </h2>
 
@@ -136,7 +138,7 @@ export default function Home() {
                     <p className="text-xs font-medium text-[#5F5F5F] mb-1 uppercase tracking-wide">
                       Before
                     </p>
-                    <p className="text-2xl font-semibold text-[#111111]">
+                    <p className="text-2xl font-semibold text-[#0A0A0A]">
                       {featuredStudy.metrics.before}
                     </p>
                   </div>
@@ -144,7 +146,7 @@ export default function Home() {
                     <p className="text-xs font-medium text-[#5F5F5F] mb-1 uppercase tracking-wide">
                       After
                     </p>
-                    <p className="text-2xl font-semibold text-[#111111]">
+                    <p className="text-2xl font-semibold text-[#0A0A0A]">
                       {featuredStudy.metrics.after}
                     </p>
                   </div>
@@ -152,16 +154,35 @@ export default function Home() {
                     <p className="text-xs font-medium text-[#5F5F5F] mb-1 uppercase tracking-wide">
                       ROI
                     </p>
-                    <p className="text-2xl font-semibold text-[#111111]">
+                    <p className="text-2xl font-semibold text-[#1E3A8A]">
                       {featuredStudy.metrics.roi}
                     </p>
                   </div>
                 </div>
 
                 {/* What changed paragraph */}
-                <p className="text-lg leading-relaxed text-[#5F5F5F] mb-8">
+                <p className="text-lg leading-relaxed text-[#5F5F5F] mb-6">
                   {featuredStudy.summary}
                 </p>
+
+                {/* Sparkline preview */}
+                <div className="mb-8 p-4 bg-white border border-[#E8E6E3] rounded-xl">
+                  <div className="flex items-center justify-between mb-3">
+                    <p className="text-xs font-medium text-[#5F5F5F] uppercase tracking-wide">
+                      Growth Timeline
+                    </p>
+                    <p className="text-xs font-semibold text-[#1E3A8A]">
+                      {featuredStudy.metrics.timeline}
+                    </p>
+                  </div>
+                  <Sparkline
+                    data={featuredTimelineData}
+                    width={400}
+                    height={80}
+                    strokeColor="#1E3A8A"
+                    strokeWidth={2}
+                  />
+                </div>
 
                 {/* Two CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
@@ -190,7 +211,7 @@ export default function Home() {
               const imageUrl = moreWinsImages[index] ?? caseStudyImages[0] ?? "";
               return (
                 <Reveal key={study.slug} className="reveal">
-                  <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#111111] overflow-hidden">
+                  <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#1E3A8A] overflow-hidden">
                     <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
                       <Image
                         src={imageUrl}
@@ -204,14 +225,14 @@ export default function Home() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-semibold text-[#111111] mb-3">{study.name}</h3>
-                      <p className="text-xl font-medium text-[#111111] mb-2">{study.headline}</p>
+                      <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-3">{study.name}</h3>
+                      <p className="text-xl font-medium text-[#0A0A0A] mb-2">{study.headline}</p>
                       <p className="text-base leading-relaxed text-[#5F5F5F] mb-6">
                         {study.summary}
                       </p>
                       <Link
                         href={`/case-studies/${study.slug}`}
-                        className="inline-flex items-center text-sm font-medium text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                        className="inline-flex items-center text-sm font-medium text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                       >
                         View playbook →
                       </Link>
@@ -228,15 +249,15 @@ export default function Home() {
       <section className="section-gap-xxl bg-[#F7F5F2]">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal">
-            <div className="bg-white border-l-4 border-[#111111] p-12 rounded-xl shadow-xl">
+            <div className="bg-white border-l-4 border-[#1E3A8A] p-12 rounded-xl shadow-xl">
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
-                  <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#111111] mb-4">
+                  <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A] mb-4">
                     90-Day Guarantee
                   </h2>
                 </div>
                 <div>
-                  <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#111111]">
+                  <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#0A0A0A]">
                     <span className="font-semibold">
                       If we don&apos;t double your revenue within 90 days,
                     </span>{" "}
@@ -264,7 +285,7 @@ export default function Home() {
                   <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#111111] flex items-center justify-center text-white font-semibold text-base border-4 border-white shadow-md flex-shrink-0">
                     1
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">Diagnose</h3>
+                  <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-3">Diagnose</h3>
                   <p className="text-lg leading-relaxed text-[#5F5F5F] mb-6">
                     Identify bottlenecks in your offer, messaging, and sales process.
                   </p>
@@ -300,7 +321,7 @@ export default function Home() {
                   <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#111111] flex items-center justify-center text-white font-semibold text-base border-4 border-white shadow-md flex-shrink-0">
                     3
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">
+                  <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-3">
                     Pipeline & Conversion
                   </h3>
                   <p className="text-lg leading-relaxed text-[#5F5F5F]">
@@ -341,7 +362,7 @@ export default function Home() {
                   <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#111111] flex items-center justify-center text-white font-semibold text-base border-4 border-white shadow-md flex-shrink-0">
                     2
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">Systems</h3>
+                  <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-3">Systems</h3>
                   <p className="text-lg leading-relaxed text-[#5F5F5F] mb-6">
                     Build repeatable processes for lead generation and nurturing.
                   </p>
@@ -377,7 +398,7 @@ export default function Home() {
                   <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#111111] flex items-center justify-center text-white font-semibold text-base border-4 border-white shadow-md flex-shrink-0">
                     4
                   </div>
-                  <h3 className="text-2xl font-semibold text-[#111111] mb-3">Scale & Review</h3>
+                  <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-3">Scale & Review</h3>
                   <p className="text-lg leading-relaxed text-[#5F5F5F]">
                     Monitor performance, iterate, and scale what works.
                   </p>
@@ -423,10 +444,10 @@ export default function Home() {
             <Reveal className="reveal">
               <div className="border-t border-[#E8E6E3] first:border-t-0 pt-10 pb-10">
                 <dt className="flex items-start gap-6 mb-4">
-                  <span className="text-2xl font-semibold text-[#111111] mt-1 flex-shrink-0">
+                  <span className="text-2xl font-semibold text-[#0A0A0A] mt-1 flex-shrink-0">
                     01
                   </span>
-                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#111111]">
+                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#0A0A0A]">
                     Who is this for?
                   </span>
                 </dt>
@@ -439,10 +460,10 @@ export default function Home() {
             <Reveal className="reveal">
               <div className="border-t border-[#E8E6E3] pt-10 pb-10">
                 <dt className="flex items-start gap-6 mb-4">
-                  <span className="text-2xl font-semibold text-[#111111] mt-1 flex-shrink-0">
+                  <span className="text-2xl font-semibold text-[#0A0A0A] mt-1 flex-shrink-0">
                     02
                   </span>
-                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#111111]">
+                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#0A0A0A]">
                     Do you share pricing?
                   </span>
                 </dt>
@@ -455,10 +476,10 @@ export default function Home() {
             <Reveal className="reveal">
               <div className="border-t border-[#E8E6E3] pt-10 pb-10">
                 <dt className="flex items-start gap-6 mb-4">
-                  <span className="text-2xl font-semibold text-[#111111] mt-1 flex-shrink-0">
+                  <span className="text-2xl font-semibold text-[#0A0A0A] mt-1 flex-shrink-0">
                     03
                   </span>
-                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#111111]">
+                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#0A0A0A]">
                     What do you actually do?
                   </span>
                 </dt>
@@ -472,10 +493,10 @@ export default function Home() {
             <Reveal className="reveal">
               <div className="border-t border-[#E8E6E3] pt-10 pb-10">
                 <dt className="flex items-start gap-6 mb-4">
-                  <span className="text-2xl font-semibold text-[#111111] mt-1 flex-shrink-0">
+                  <span className="text-2xl font-semibold text-[#0A0A0A] mt-1 flex-shrink-0">
                     04
                   </span>
-                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#111111]">
+                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#0A0A0A]">
                     What&apos;s the timeline?
                   </span>
                 </dt>
@@ -488,10 +509,10 @@ export default function Home() {
             <Reveal className="reveal">
               <div className="border-t border-[#E8E6E3] pt-10 pb-10">
                 <dt className="flex items-start gap-6 mb-4">
-                  <span className="text-2xl font-semibold text-[#111111] mt-1 flex-shrink-0">
+                  <span className="text-2xl font-semibold text-[#0A0A0A] mt-1 flex-shrink-0">
                     05
                   </span>
-                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#111111]">
+                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#0A0A0A]">
                     What&apos;s the commitment?
                   </span>
                 </dt>
@@ -504,10 +525,10 @@ export default function Home() {
             <Reveal className="reveal">
               <div className="border-t border-[#E8E6E3] pt-10 pb-10">
                 <dt className="flex items-start gap-6 mb-4">
-                  <span className="text-2xl font-semibold text-[#111111] mt-1 flex-shrink-0">
+                  <span className="text-2xl font-semibold text-[#0A0A0A] mt-1 flex-shrink-0">
                     06
                   </span>
-                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#111111]">
+                  <span className="text-[clamp(1.75rem,3vw,2rem)] font-semibold text-[#0A0A0A]">
                     How does the guarantee work?
                   </span>
                 </dt>
@@ -525,10 +546,10 @@ export default function Home() {
       <section className="relative section-gap-xxl overflow-hidden bg-[#111111]">
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal max-w-3xl mx-auto text-center bg-white/95 backdrop-blur-sm rounded-2xl p-16 shadow-2xl border border-white/20">
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#111111] mb-6">
+            <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-white mb-6">
               Ready to scale?
             </h2>
-            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5F5F5F] mb-10">
+            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-white/90 mb-10">
               Apply now and let&apos;s double your revenue together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

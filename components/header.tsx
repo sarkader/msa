@@ -12,7 +12,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <Link
             href="/case-studies"
-            className="text-sm font-medium text-[#5F5F5F] hover:text-[#111111] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors hidden md:inline-flex"
+            className="text-sm font-medium text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors hidden md:inline-flex"
           >
             Case Studies
           </Link>

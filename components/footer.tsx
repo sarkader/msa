@@ -5,7 +5,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full border-t border-[#E8E6E3] bg-white">
+    <footer className="w-full border-t-2 border-t-[#1E3A8A] border-b border-b-[#E8E6E3] bg-white">
       <div className="container-section px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 mb-8">
           {/* About */}
@@ -19,14 +19,14 @@ export default function Footer() {
 
           {/* Links */}
           <div>
-            <h3 className="text-sm font-semibold text-[#111111] mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-[#0A0A0A] mb-4 uppercase tracking-wide">
               Links
             </h3>
             <ul className="space-y-3">
               <li>
                 <Link
                   href="/case-studies"
-                  className="text-sm text-[#5F5F5F] hover:text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                  className="text-sm text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                 >
                   Case Studies
                 </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/book"
-                  className="text-sm text-[#5F5F5F] hover:text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                  className="text-sm text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                 >
                   Book Call
                 </Link>
@@ -42,7 +42,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-sm text-[#5F5F5F] hover:text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                  className="text-sm text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                 >
                   Privacy
                 </Link>
@@ -50,7 +50,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/terms"
-                  className="text-sm text-[#5F5F5F] hover:text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                  className="text-sm text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                 >
                   Terms
                 </Link>
@@ -60,14 +60,14 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-[#111111] mb-4 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-[#0A0A0A] mb-4 uppercase tracking-wide">
               Contact
             </h3>
             <ul className="space-y-3">
               <li>
                 <a
                   href="mailto:anyemail@test.com"
-                  className="text-sm text-[#5F5F5F] hover:text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                  className="text-sm text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                 >
                   anyemail@test.com
                 </a>

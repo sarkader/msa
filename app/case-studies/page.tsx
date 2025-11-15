@@ -60,7 +60,7 @@ export default function CaseStudiesPage() {
                 "";
               return (
                 <Reveal key={study.slug} className="reveal">
-                  <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#111111] overflow-hidden">
+                  <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#1E3A8A] overflow-hidden">
                     <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
                       <Image
                         src={imageUrl}
@@ -74,15 +74,15 @@ export default function CaseStudiesPage() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-semibold text-[#111111] mb-2">{study.name}</h3>
-                      <p className="text-xl font-medium text-[#111111] mb-3">{study.headline}</p>
+                      <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-2">{study.name}</h3>
+                      <p className="text-xl font-medium text-[#0A0A0A] mb-3">{study.headline}</p>
                       <p className="text-base leading-relaxed text-[#5F5F5F] mb-6">
                         {study.summary}
                       </p>
 
                       <Link
                         href={`/case-studies/${study.slug}`}
-                        className="inline-flex items-center text-sm font-medium text-[#111111] hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white rounded transition-colors"
+                        className="inline-flex items-center text-sm font-medium text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
                       >
                         View playbook →
                       </Link>
