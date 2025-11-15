@@ -217,3 +217,115 @@ body {
   min-height: 820px;
   border: none;
 }
+
+/* CSS-only tabs for Case Study Timeline CTA */
+.tabs-container {
+  position: relative;
+}
+
+.tabs-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tab-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem 0.5rem 0 0;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    background 0.2s,
+    border-color 0.2s;
+  margin-right: 0.5rem;
+}
+
+.tab-label:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-label:focus-visible {
+  outline: 2px solid rgba(168, 180, 230, 0.8);
+  outline-offset: 2px;
+}
+
+.tabs-radio:checked + .tab-label {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  border-bottom-color: transparent;
+}
+
+.tab-panel {
+  display: none;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: none;
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+/* Show first panel by default (lower specificity first) */
+.tab-panel[id="panel-muslim-settify"] {
+  display: block;
+}
+
+/* Show panels based on checked state (higher specificity overrides) */
+#tab-muslim-settify:checked ~ .tab-panel[id="panel-muslim-settify"] {
+  display: block;
+}
+
+#tab-aqib:checked ~ .tab-panel[id="panel-aqib"] {
+  display: block;
+}
+
+#tab-ustadh-abdulaziz-haqqan:checked ~ .tab-panel[id="panel-ustadh-abdulaziz-haqqan"] {
+  display: block;
+}
+
+/* Hide panels when other tabs are selected */
+#tab-aqib:checked ~ .tab-panel[id="panel-muslim-settify"],
+#tab-ustadh-abdulaziz-haqqan:checked ~ .tab-panel[id="panel-muslim-settify"],
+#tab-aqib:checked ~ .tab-panel[id="panel-ustadh-abdulaziz-haqqan"],
+#tab-muslim-settify:checked ~ .tab-panel[id="panel-aqib"],
+#tab-muslim-settify:checked ~ .tab-panel[id="panel-ustadh-abdulaziz-haqqan"],
+#tab-ustadh-abdulaziz-haqqan:checked ~ .tab-panel[id="panel-aqib"] {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tab-label {
+    padding: 0.5rem 1rem;
+    font-size: 0.8125rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tabs-radio:checked + .tab-label {
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .tab-panel {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.375rem;
+    margin-top: 0.5rem;
+    padding: 1.5rem;
+  }
+
+  .tab-panel > div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tab-panel > div > div {
+    width: 100%;
+  }
+}

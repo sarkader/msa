@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import Button from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import SectionHeader from "@/components/ui/section-header";
@@ -54,7 +55,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Credibility/value band (stats) */}
+      {/* Professional Results strip */}
       <section className="relative py-6 md:py-8 bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0]">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal">
@@ -72,6 +73,16 @@ export default function Home() {
                 <span className="text-sm md:text-base text-[#0B1220] font-medium">
                   Avg ROI 2.7×
                 </span>
+                {/* Mini sparkline - desktop only */}
+                <div className="hidden md:block ml-4 w-24 flex-shrink-0">
+                  <Sparkline
+                    data={featuredTimelineData}
+                    width={96}
+                    height={36}
+                    strokeColor="#1E3A8A"
+                    strokeWidth={2}
+                  />
+                </div>
               </div>
             </div>
           </Reveal>
@@ -517,43 +528,186 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section
-        className="relative section-gap-xxl overflow-hidden"
-        style={{
-          background:
-            "linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%), radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.3) 0%, transparent 70%)",
-        }}
-      >
-        {/* Subtle noise/texture overlay */}
+      {/* Interactive Case Study Timeline CTA */}
+      <section className="relative section-gap-xxl overflow-hidden">
+        {/* Subtle blue gradient background */}
         <div
-          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            background:
+              "linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%), radial-gradient(circle at 30% 50%, rgba(30, 64, 175, 0.25) 0%, transparent 60%), conic-gradient(from 180deg at 70% 30%, rgba(27, 51, 128, 0.15) 0deg, transparent 120deg)",
           }}
           aria-hidden="true"
         />
+        {/* Supporting image behind content - desktop only */}
+        {caseStudyImages[0] && (
+          <div
+            className="hidden lg:block absolute inset-0 overflow-hidden pointer-events-none"
+            aria-hidden="true"
+          >
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] opacity-20">
+              <Image
+                src={caseStudyImages[0]}
+                alt=""
+                fill
+                sizes="600px"
+                className="object-cover"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, transparent 70%)",
+                  WebkitMaskImage:
+                    "radial-gradient(circle at center, rgba(0,0,0,0.4) 0%, transparent 70%)",
+                }}
+                loading="lazy"
+                decoding="async"
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+        )}
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal max-w-3xl mx-auto text-center">
+          {/* Header */}
+          <Reveal className="reveal max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-white mb-6">
               Ready to scale with a proven partner?
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed text-white/95 mb-10">
+            <p className="text-lg md:text-xl leading-relaxed text-white/95">
               We install the systems that move revenue—offers, funnels, appointments, and follow‑up.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <Button
-                href="/book"
-                variant="primary"
-                className="bg-white text-[#1E3A8A] hover:bg-white/95 hover:text-[#1E40AF] focus:ring-white/50"
-              >
-                Book a call
-              </Button>
-              <Button href="#case-studies" variant="ghost">
-                See case studies
-              </Button>
+          </Reveal>
+
+          {/* CSS-only tabs */}
+          <div className="tabs-container max-w-5xl mx-auto">
+            <div
+              role="tablist"
+              className="flex flex-wrap gap-2 justify-center mb-0"
+              aria-label="Case studies"
+            >
+              {caseStudies.map((study) => (
+                <React.Fragment key={study.slug}>
+                  <input
+                    type="radio"
+                    id={`tab-${study.slug}`}
+                    name="case-study-tabs"
+                    className="tabs-radio"
+                    defaultChecked={study.slug === "muslim-settify"}
+                    aria-controls={`panel-${study.slug}`}
+                  />
+                  <label htmlFor={`tab-${study.slug}`} className="tab-label">
+                    {study.name}
+                  </label>
+                </React.Fragment>
+              ))}
             </div>
-            <div className="flex items-center justify-center gap-3 text-sm text-white/80">
+
+            {/* Tab panels */}
+            {caseStudies.map((study) => {
+              const timelineData = study.timeline.map((item) => item.revenue);
+              const milestones = study.timeline.slice(-3); // Last 3 milestones
+
+              return (
+                <div
+                  key={study.slug}
+                  id={`panel-${study.slug}`}
+                  className="tab-panel"
+                  role="tabpanel"
+                  aria-labelledby={`tab-${study.slug}`}
+                >
+                  <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+                    {/* Left column */}
+                    <div className="md:order-1">
+                      {/* Result headline */}
+                      <h3 className="text-2xl md:text-3xl font-semibold text-white mb-6">
+                        {study.headline}
+                      </h3>
+
+                      {/* 3 KPIs */}
+                      <div className="grid grid-cols-3 gap-4 mb-6 pb-6 border-b border-white/20">
+                        <div>
+                          <p className="text-xs font-medium text-white/70 mb-1 uppercase tracking-wide">
+                            Before
+                          </p>
+                          <p className="text-xl font-semibold text-white">{study.metrics.before}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-white/70 mb-1 uppercase tracking-wide">
+                            After
+                          </p>
+                          <p className="text-xl font-semibold text-white">{study.metrics.after}</p>
+                        </div>
+                        <div>
+                          <p className="text-xs font-medium text-white/70 mb-1 uppercase tracking-wide">
+                            ROI
+                          </p>
+                          <p className="text-xl font-semibold text-white">{study.metrics.roi}</p>
+                        </div>
+                      </div>
+
+                      {/* CTA row */}
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Button
+                          href="/book"
+                          variant="primary"
+                          className="bg-white text-[#1E3A8A] hover:bg-white/95 hover:text-[#1E40AF] focus:ring-white/50"
+                        >
+                          Book a call
+                        </Button>
+                        <Button href={`/case-studies/${study.slug}`} variant="ghost">
+                          Read playbook
+                        </Button>
+                      </div>
+                    </div>
+
+                    {/* Right column */}
+                    <div className="space-y-6 md:order-2">
+                      {/* Sparkline */}
+                      <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                        <Sparkline
+                          data={timelineData}
+                          width={400}
+                          height={120}
+                          strokeColor="#FFFFFF"
+                          strokeWidth={2}
+                        />
+                      </div>
+
+                      {/* Milestones */}
+                      <div className="relative pl-6">
+                        <div
+                          className="absolute left-2 top-0 bottom-0 w-px bg-white/20"
+                          aria-hidden="true"
+                        />
+                        <div className="space-y-4">
+                          {milestones.map((milestone) => (
+                            <div
+                              key={`${milestone.date}-${milestone.revenue}`}
+                              className="relative"
+                            >
+                              <div
+                                className="absolute left-[-26px] top-1.5 w-3 h-3 rounded-full bg-white border-2 border-[#1E3A8A] shadow-sm"
+                                aria-hidden="true"
+                              />
+                              <p className="text-sm font-semibold text-white mb-1">
+                                {milestone.date}
+                              </p>
+                              <p className="text-lg font-semibold text-white/90 mb-1">
+                                ${milestone.revenue.toLocaleString()}
+                              </p>
+                              <p className="text-sm text-white/70">{milestone.note}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Trust row */}
+          <Reveal className="reveal mt-10 text-center">
+            <div className="flex items-center justify-center gap-3 text-sm text-white/80 flex-wrap">
               <span>90‑day guarantee</span>
               <span>•</span>
               <span>No price on site</span>
