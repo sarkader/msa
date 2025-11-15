@@ -365,3 +365,69 @@ body {
     padding: 1rem 0;
   }
 }
+
+/* Mobile-only overrides (max-width: 640px) */
+@media (max-width: 640px) {
+  /* Center hero copy on mobile only */
+  [data-mobile-center] {
+    text-align: center;
+  }
+
+  /* Stack hero CTA buttons full-width on mobile only */
+  [data-mobile-cta] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  [data-mobile-cta] a,
+  [data-mobile-cta] button {
+    width: 100%;
+  }
+
+  /* Results band: center eyebrow and chips on mobile only */
+  [data-mobile-results] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  [data-mobile-results-chips] {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  /* More wins: force single column on mobile only */
+  [data-mobile-wins] {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+
+  /* Bottom CTA section: center + full-width buttons on mobile only */
+  [data-mobile-cta-section] {
+    text-align: center;
+  }
+
+  [data-mobile-cta-buttons] {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  [data-mobile-cta-buttons] a,
+  [data-mobile-cta-buttons] button {
+    width: 100%;
+  }
+
+  /* Ensure no accidental horizontal scroll from backgrounds */
+  .hero-wrap {
+    overflow-x: clip;
+  }
+}

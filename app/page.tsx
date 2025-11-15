@@ -33,26 +33,23 @@ export default function Home() {
         <div className="hero-bg" aria-hidden="true" />
 
         {/* Content */}
-        <div className="site-container relative z-10 flex flex-col items-center justify-center text-center sm:text-left">
+        <div className="site-container relative z-10 flex flex-col items-center justify-center text-center">
           <Reveal className="reveal w-full">
             <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
-            <h1 className="text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
-              Double your revenue or your fee back.
-            </h1>
-            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
-              We help Muslim founders grow courses, consulting, and productized services without
-              noise—just systems that move revenue.
-            </p>
-            <div className="flex flex-col gap-3 w-full sm:flex-row sm:gap-4 sm:w-auto sm:items-center">
-              <Button href="/book" variant="primary" size="large" className="w-full sm:w-auto">
+            <div data-mobile-center>
+              <h1 className="text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
+                Double your revenue or your fee back.
+              </h1>
+              <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
+                We help Muslim founders grow courses, consulting, and productized services without
+                noise—just systems that move revenue.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto" data-mobile-cta>
+              <Button href="/book" variant="primary" size="large" fullWidth>
                 Book Call
               </Button>
-              <Button
-                href="#case-studies"
-                variant="secondary"
-                size="large"
-                className="w-full sm:w-auto"
-              >
+              <Button href="#case-studies" variant="secondary" size="large" fullWidth>
                 See case studies
               </Button>
             </div>
@@ -64,9 +61,9 @@ export default function Home() {
       <section className="bg-[rgba(30,64,175,0.06)] border-y border-[var(--divider)]">
         <div className="site-container">
           <Reveal className="reveal">
-            <div className="flex flex-col items-center gap-3 py-4 sm:flex-row sm:justify-between sm:gap-4 md:gap-6 min-h-[80px] sm:py-6 md:py-8">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 min-h-[80px] py-4 sm:py-6 md:py-8" data-mobile-results>
               <span className="eyebrow text-sm text-center sm:text-left">Results</span>
-              <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-end w-full sm:w-auto">
+              <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-end w-full sm:w-auto" data-mobile-results-chips>
                 {/* Professional metric tags */}
                 <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
                   Active partners 12+
@@ -201,7 +198,7 @@ export default function Home() {
             <SectionHeader eyebrow="More Results" title="More Wins" id="more-wins" />
           </Reveal>
 
-          <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 items-stretch">
+          <div className="grid gap-8 sm:grid-cols-2 items-stretch" data-mobile-wins>
             {moreWins.map((study, index) => {
               const imageUrl = moreWinsImages[index] ?? caseStudyImages[0] ?? "";
               return (
@@ -555,7 +552,7 @@ export default function Home() {
         {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#1E3A8A]" aria-hidden="true" />
 
-        <div className="site-container relative z-10">
+        <div className="site-container relative z-10" data-mobile-cta-section>
           {/* Header */}
           <Reveal className="reveal text-center mb-12">
             <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6 max-w-3xl mx-auto">
@@ -595,16 +592,11 @@ export default function Home() {
                     </span>
                   </li>
                 </ul>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 sm:items-center">
-                  <Button href="/book" variant="primary" size="large" className="w-full sm:w-auto">
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4" data-mobile-cta-buttons>
+                  <Button href="/book" variant="primary" size="large" fullWidth>
                     Book a call
                   </Button>
-                  <Button
-                    href="#case-studies"
-                    variant="secondary"
-                    size="large"
-                    className="w-full sm:w-auto"
-                  >
+                  <Button href="#case-studies" variant="secondary" size="large" fullWidth>
                     Read playbook
                   </Button>
                 </div>
