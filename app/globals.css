@@ -61,6 +61,15 @@
   --font-size-large: 1.125rem; /* 18px */
 }
 
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -271,16 +280,35 @@ body {
 
 @media (max-width: 640px) {
   .scenario-tab-label {
-    padding: 0.5rem 1rem;
-    font-size: 0.8125rem;
-    margin-bottom: 0.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    margin-bottom: 0;
+    margin-right: 0;
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+    border-radius: 0.5rem;
   }
 
   .scenario-tabs-radio:checked + .scenario-tab-label::after {
     display: none;
   }
 
+  .scenario-tabs-radio:checked + .scenario-tab-label {
+    border-bottom-color: #1e3a8a;
+    border-bottom-width: 2px;
+  }
+
   .scenario-tab-panel {
     padding: 1rem 0;
+  }
+
+  /* Prevent horizontal scroll on hero */
+  .hero-wrap {
+    overflow-x: hidden;
+  }
+
+  .hero-bg {
+    overflow-x: hidden;
   }
 }

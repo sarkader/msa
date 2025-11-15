@@ -29,8 +29,11 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero - TryArchitect/Cluely style */}
       <section
-        className="relative overflow-hidden"
-        style={{ paddingTop: "10rem", paddingBottom: "7.5rem" }}
+        className="hero-wrap relative overflow-x-hidden"
+        style={{
+          paddingTop: "clamp(6rem, 12vw, 10rem)",
+          paddingBottom: "clamp(4.5rem, 9vw, 7.5rem)",
+        }}
       >
         {/* Background layers - always visible */}
         <div className="hero-bg absolute inset-0 pointer-events-none z-0" aria-hidden="true">
@@ -58,7 +61,7 @@ export default function Home() {
                   "radial-gradient(circle at 60% 40%, rgba(255,255,255,.85) 0%, transparent 60%)",
                 WebkitMaskImage:
                   "radial-gradient(circle at 60% 40%, rgba(255,255,255,.85) 0%, transparent 60%)",
-                opacity: 0.25,
+                opacity: 0.22,
               }}
               priority
               decoding="async"
@@ -71,18 +74,18 @@ export default function Home() {
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
           <Reveal className="reveal w-full">
             <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
-            <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
+            <h1 className="text-[clamp(3rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
               Double your revenue or your fee back.
             </h1>
             <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
               We help Muslim founders grow courses, consulting, and productized services without
               noise—just systems that move revenue.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button href="/book" variant="primary">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center w-full sm:w-auto">
+              <Button href="/book" variant="primary" size="large" fullWidth>
                 Book Call
               </Button>
-              <Button href="#case-studies" variant="secondary">
+              <Button href="#case-studies" variant="secondary" size="large" fullWidth>
                 See case studies
               </Button>
             </div>
@@ -91,20 +94,20 @@ export default function Home() {
       </section>
 
       {/* Results band - polished */}
-      <section className="relative bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0]">
+      <section className="relative bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0] overflow-x-hidden">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 min-h-[80px] py-6 md:py-8">
-              <span className="eyebrow text-sm">Results</span>
-              <div className="flex items-center gap-3 md:gap-4 flex-wrap justify-center sm:justify-end">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 min-h-[80px] py-4 sm:py-6 md:py-8">
+              <span className="eyebrow text-sm text-center sm:text-left">Results</span>
+              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
                 {/* Professional metric tags */}
-                <span className="inline-flex items-center px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm">
+                <span className="inline-flex items-center px-3 sm:px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm min-h-[44px]">
                   Active partners 12+
                 </span>
-                <span className="inline-flex items-center px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm">
+                <span className="inline-flex items-center px-3 sm:px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm min-h-[44px]">
                   Highest monthly jump $50k → $110k
                 </span>
-                <span className="inline-flex items-center px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm">
+                <span className="inline-flex items-center px-3 sm:px-4 py-2 text-sm md:text-base text-[#0B1220] font-medium bg-white border border-[#E6EAF0] rounded-full shadow-sm min-h-[44px]">
                   Avg ROI 2.7×
                 </span>
                 {/* Mini sparkline - desktop only */}
@@ -186,8 +189,8 @@ export default function Home() {
                 </p>
 
                 {/* Sparkline preview */}
-                <div className="mb-8 p-4 bg-[#F8FAFC] border border-[#E6EAF0] rounded-xl">
-                  <div className="flex items-center justify-between mb-3">
+                <div className="mb-6 sm:mb-8 p-3 sm:p-4 bg-[#F8FAFC] border border-[#E6EAF0] rounded-xl overflow-hidden">
+                  <div className="flex items-center justify-between mb-2 sm:mb-3">
                     <p className="text-xs font-medium text-[#5B6473] uppercase tracking-wide">
                       Growth Timeline
                     </p>
@@ -205,11 +208,16 @@ export default function Home() {
                 </div>
 
                 {/* Two CTAs */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button href="/book" variant="primary">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button href="/book" variant="primary" size="large" fullWidth>
                     Book Call
                   </Button>
-                  <Button href={`/case-studies/${featuredStudy.slug}`} variant="secondary">
+                  <Button
+                    href={`/case-studies/${featuredStudy.slug}`}
+                    variant="secondary"
+                    size="large"
+                    fullWidth
+                  >
                     Read Playbook
                   </Button>
                 </div>
@@ -226,33 +234,37 @@ export default function Home() {
             <SectionHeader eyebrow="More Results" title="More Wins" />
           </Reveal>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
             {moreWins.map((study, index) => {
               const imageUrl = moreWinsImages[index] ?? caseStudyImages[0] ?? "";
               return (
                 <Reveal key={study.slug} className="reveal">
-                  <article className="group w-full bg-white border border-[#E6EAF0] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#1E3A8A] overflow-hidden">
+                  <article className="group w-full bg-white border border-[#E6EAF0] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#1E3A8A] overflow-hidden touch-manipulation">
                     <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
                       <Image
                         src={imageUrl}
                         alt={`${study.name} case study`}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
                         decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <div className="p-10">
-                      <h3 className="text-2xl font-semibold text-[#0B1220] mb-3">{study.name}</h3>
-                      <p className="text-xl font-medium text-[#0B1220] mb-2">{study.headline}</p>
+                    <div className="p-6 sm:p-8 lg:p-10">
+                      <h3 className="text-xl sm:text-2xl font-semibold text-[#0B1220] mb-3">
+                        {study.name}
+                      </h3>
+                      <p className="text-lg sm:text-xl font-medium text-[#0B1220] mb-2">
+                        {study.headline}
+                      </p>
                       <p className="text-base leading-relaxed text-[#5B6473] mb-6">
                         {study.summary}
                       </p>
                       <Link
                         href={`/case-studies/${study.slug}`}
-                        className="inline-flex items-center text-sm font-medium text-[#0B1220] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8B4E6] focus:ring-offset-white rounded transition-colors"
+                        className="inline-flex items-center text-sm font-medium text-[#0B1220] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8B4E6] focus:ring-offset-white rounded transition-colors min-h-[44px]"
                       >
                         View playbook →
                       </Link>
@@ -616,11 +628,11 @@ export default function Home() {
                     </span>
                   </li>
                 </ul>
-                <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                  <Button href="/book" variant="primary">
+                <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <Button href="/book" variant="primary" size="large" fullWidth>
                     Book a call
                   </Button>
-                  <Button href="#case-studies" variant="secondary">
+                  <Button href="#case-studies" variant="secondary" size="large" fullWidth>
                     Read playbook
                   </Button>
                 </div>
@@ -632,7 +644,7 @@ export default function Home() {
               <div className="scenario-tabs-container">
                 <div
                   role="tablist"
-                  className="flex flex-wrap gap-2 mb-4"
+                  className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mb-4"
                   aria-label="Choose your scenario"
                 >
                   {/* Courses */}
@@ -706,9 +718,9 @@ export default function Home() {
                         role="tabpanel"
                         aria-labelledby={`scenario-${scenario.id}`}
                       >
-                        <div className="space-y-6">
+                        <div className="space-y-4 sm:space-y-6">
                           {/* Sparkline */}
-                          <div className="bg-white rounded-xl p-4 border border-[#E6EAF0] shadow-sm">
+                          <div className="bg-white rounded-xl p-3 sm:p-4 border border-[#E6EAF0] shadow-sm overflow-hidden">
                             <Sparkline
                               data={timelineData}
                               width={400}
