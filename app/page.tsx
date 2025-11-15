@@ -61,7 +61,7 @@ export default function Home() {
           <Reveal className="reveal">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 min-h-[80px] py-4 sm:py-6 md:py-8">
               <span className="eyebrow text-sm text-center sm:text-left">Results</span>
-              <div className="flex items-center gap-2 sm:gap-3 md:gap-4 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
+              <div className="flex items-center gap-2 flex-wrap justify-center sm:justify-end w-full sm:w-auto">
                 {/* Professional metric tags */}
                 <span className="inline-flex items-center rounded-full border border-[var(--accent-300)] bg-[rgba(30,64,175,0.08)] px-3 py-2 text-base text-[var(--text)] font-medium min-h-[44px]">
                   Active partners 12+
@@ -73,7 +73,7 @@ export default function Home() {
                   Avg ROI 2.7×
                 </span>
                 {/* Mini sparkline - desktop only */}
-                <div className="hidden md:flex ml-4 w-24 flex-shrink-0 items-center">
+                <div className="hidden md:flex ms-auto w-24 flex-shrink-0 items-center">
                   <Sparkline
                     data={featuredTimelineData}
                     width={96}
@@ -95,7 +95,7 @@ export default function Home() {
             {/* Large image - left column on desktop, first on mobile */}
             <div className="order-2 md:order-1">
               <Reveal className="reveal">
-                <div className="relative w-full aspect-[4/3] max-w-[560px] mx-auto md:mx-0 rounded-2xl border border-[#E6EAF0] overflow-hidden bg-[#e5e5e5]">
+                <div className="relative w-full aspect-[4/3] rounded-2xl border border-[#E6EAF0] overflow-hidden bg-[#e5e5e5]">
                   <Image
                     src={featuredImage}
                     alt={`${featuredStudy.name} case study`}
@@ -190,10 +190,10 @@ export default function Home() {
       </section>
 
       {/* More Wins (2 large cards) */}
-      <section className="section-gap-xxl bg-[#F8FAFC]">
+      <section aria-labelledby="more-wins" className="section-gap-xxl bg-[#F8FAFC]">
         <div className="site-container">
           <Reveal className="reveal mb-16">
-            <SectionHeader eyebrow="More Results" title="More Wins" />
+            <SectionHeader eyebrow="More Results" title="More Wins" id="more-wins" />
           </Reveal>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
@@ -552,11 +552,11 @@ export default function Home() {
 
         <div className="site-container relative z-10">
           {/* Header */}
-          <Reveal className="reveal max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6">
+          <Reveal className="reveal text-center mb-12">
+            <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6 max-w-3xl mx-auto">
               Ready to scale with a proven partner?
             </h2>
-            <p className="text-lg md:text-xl leading-relaxed text-[#5B6473]">
+            <p className="text-lg md:text-xl leading-relaxed text-[#5B6473] max-w-3xl mx-auto">
               We install the systems that move revenue—offers, funnels, appointments, and follow‑up.
             </p>
           </Reveal>

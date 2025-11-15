@@ -5,6 +5,7 @@ type Props = {
   description?: string;
   align?: "left" | "center";
   className?: string;
+  id?: string;
 };
 
 export default function SectionHeader({
@@ -14,13 +15,17 @@ export default function SectionHeader({
   description,
   align = "left",
   className = "",
+  id,
 }: Props) {
   const alignClass = align === "center" ? "text-center mx-auto" : "";
 
   return (
     <div className={`${className} ${alignClass}`}>
       {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
-      <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#111111] mb-4">
+      <h2
+        id={id}
+        className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#111111] mb-4"
+      >
         {title}
       </h2>
       {kicker && (

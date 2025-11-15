@@ -99,7 +99,7 @@ body {
 }
 
 .site-container {
-  max-width: 67.5rem; /* 1080px - same as container-tight */
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 1rem; /* px-4 */
@@ -363,14 +363,5 @@ body {
 
   .scenario-tab-panel {
     padding: 1rem 0;
-  }
-
-  /* Prevent horizontal scroll on hero */
-  .hero-wrap {
-    overflow-x: hidden;
-  }
-
-  .hero-bg {
-    overflow-x: hidden;
   }
 }
