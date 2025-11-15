@@ -1,15 +1,12 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import { Geist } from "next/font/google";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument-sans",
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -40,10 +37,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${instrumentSans.variable} antialiased`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+      <body className={`${geistSans.variable} antialiased`}>
+        {children}
         <Analytics />
         <SpeedInsights />
       </body>
