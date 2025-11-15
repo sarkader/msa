@@ -28,73 +28,77 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative section-gap-xxl overflow-hidden bg-[#F8FAFC]">
-        {/* Premium layered blue gradients and geometric shapes */}
-        <div className="hero-backdrop" aria-hidden="true" />
-
-        {/* Optional hero image overlay */}
-        <div
-          className="hidden lg:block absolute inset-0 overflow-hidden pointer-events-none z-[-15]"
-          aria-hidden="true"
-        >
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[600px] opacity-25">
-            <Image
-              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902"
-              alt=""
-              fill
-              sizes="800px"
-              className="object-cover"
-              style={{
-                maskImage:
-                  "radial-gradient(circle at 70% 50%, rgba(0,0,0,0.5) 0%, transparent 70%)",
-                WebkitMaskImage:
-                  "radial-gradient(circle at 70% 50%, rgba(0,0,0,0.5) 0%, transparent 70%)",
-              }}
-              priority
-              decoding="async"
+      <section className="section-gap-xxl overflow-hidden">
+        <div className="hero-layered">
+          {/* Always-on background layer */}
+          <div className="hero-bg" aria-hidden="true">
+            {/* Gradient fill layer - always visible */}
+            <div className="gradient-fill" aria-hidden="true" />
+            {/* Image overlay - desktop and tablet */}
+            <div
+              className="hidden md:block absolute inset-0 overflow-hidden pointer-events-none"
               aria-hidden="true"
-            />
-          </div>
-        </div>
-
-        <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
-          <Reveal className="reveal w-full">
-            <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
-            <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
-              Double your revenue or your fee back.
-            </h1>
-            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
-              We help Muslim founders grow courses, consulting, and productized services without
-              noise — just systems that move revenue.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center items-center">
-              <Button href="/book" variant="primary">
-                Book Call
-              </Button>
-              <Button href="#case-studies" variant="secondary">
-                See case studies
-              </Button>
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                alt=""
+                fill
+                sizes="100vw"
+                className="object-cover"
+                style={{
+                  maskImage:
+                    "radial-gradient(circle at 60% 40%, rgba(255,255,255,.85) 0%, transparent 60%)",
+                  WebkitMaskImage:
+                    "radial-gradient(circle at 60% 40%, rgba(255,255,255,.85) 0%, transparent 60%)",
+                  opacity: 0.25,
+                }}
+                priority
+                decoding="async"
+                aria-hidden="true"
+              />
             </div>
-          </Reveal>
+          </div>
+
+          {/* Content layer */}
+          <div className="content container-tight px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+            <Reveal className="reveal w-full">
+              <p className="eyebrow mb-4 tracking-wider">Muslim Scale Accelerator</p>
+              <h1 className="text-[clamp(3.5rem,8vw,6rem)] font-semibold leading-[1.05] tracking-tight text-[#0B1220] mb-6 max-w-[680px] mx-auto">
+                Double your revenue or your fee back.
+              </h1>
+              <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10 max-w-[680px] mx-auto font-medium">
+                We help Muslim founders grow courses, consulting, and productized services without
+                noise — just systems that move revenue.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 mb-16 justify-center items-center">
+                <Button href="/book" variant="primary">
+                  Book Call
+                </Button>
+                <Button href="#case-studies" variant="secondary">
+                  See case studies
+                </Button>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* Professional Results strip - aligned to hero container */}
-      <section className="relative py-6 md:py-8 bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0]">
+      <section className="relative bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0]">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-6 min-h-[72px] py-6 md:py-8">
               <span className="eyebrow text-sm">Results</span>
               <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center sm:justify-end">
-                <span className="text-sm md:text-base text-[#0B1220] font-medium">
+                <span className="text-base md:text-lg text-[#0B1220] font-medium tracking-tight">
                   Active partners 12+
                 </span>
                 <span className="text-[#a3a3a3]">•</span>
-                <span className="text-sm md:text-base text-[#0B1220] font-medium">
+                <span className="text-base md:text-lg text-[#0B1220] font-medium tracking-tight">
                   Highest monthly jump $50k → $110k
                 </span>
                 <span className="text-[#a3a3a3]">•</span>
-                <span className="text-sm md:text-base text-[#0B1220] font-medium">
+                <span className="text-base md:text-lg text-[#0B1220] font-medium tracking-tight">
                   Avg ROI 2.7×
                 </span>
                 {/* Mini sparkline - desktop only */}
