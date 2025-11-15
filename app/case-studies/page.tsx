@@ -28,14 +28,14 @@ export default function CaseStudiesPage() {
           {/* Collage row of 3 images */}
           <Reveal className="reveal">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
-              {caseStudyImages.map((imageUrl, index) => (
+              {caseStudyImages.map((imageUrl) => (
                 <div
-                  key={index}
+                  key={imageUrl}
                   className="relative w-full aspect-[4/3] rounded-xl border border-[#E8E6E3] overflow-hidden bg-[#e5e5e5]"
                 >
                   <Image
                     src={imageUrl}
-                    alt={`Case study ${index + 1}`}
+                    alt="Case study"
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 300px"
                     className="object-cover"

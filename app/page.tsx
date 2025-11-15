@@ -182,7 +182,7 @@ export default function Home() {
       <section className="section-gap-xxl bg-[#F7F5F2]">
         <div className="container-section px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal mb-16">
-            <SectionHeader eyebrow="More Wins" title="Additional Case Studies" />
+            <SectionHeader eyebrow="More Results" title="More Wins" />
           </Reveal>
 
           <div className="grid gap-8 md:grid-cols-2">

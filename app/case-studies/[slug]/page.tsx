@@ -188,12 +188,12 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               </Reveal>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {gallery.map((imageUrl, index) => (
-                  <Reveal key={index} className="reveal">
+                {gallery.map((imageUrl) => (
+                  <Reveal key={imageUrl} className="reveal">
                     <div className="relative w-full aspect-[4/3] rounded-xl border border-[#E8E6E3] overflow-hidden bg-[#e5e5e5]">
                       <Image
                         src={imageUrl}
-                        alt={`${study.name} gallery image ${index + 1}`}
+                        alt={`${study.name} gallery image`}
                         fill
                         sizes="(max-width: 768px) 100vw, 33vw"
                         className="object-cover"
