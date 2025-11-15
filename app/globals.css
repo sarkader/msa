@@ -79,3 +79,20 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
+
+@media (max-width: 640px) {
+  [data-mobile-nav] {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  [data-mobile-nav-cta] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 14px;
+    margin-right: 12px;
+    border-radius: 9999px;
+    min-height: 44px;
+  }
+}
