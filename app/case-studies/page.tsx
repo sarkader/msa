@@ -12,9 +12,9 @@ const caseStudyImages = [
 
 export default function CaseStudiesPage() {
   return (
-    <div className="min-h-screen bg-[#F7F5F2]">
+    <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero with intro */}
-      <section className="section-gap-xxl border-b border-[#E8E6E3] bg-white">
+      <section className="section-gap-xxl border-b border-[#E6EAF0] bg-white">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal mb-12 text-center max-w-3xl mx-auto">
             <SectionHeader
@@ -31,7 +31,7 @@ export default function CaseStudiesPage() {
               {caseStudyImages.map((imageUrl) => (
                 <div
                   key={imageUrl}
-                  className="relative w-full aspect-[4/3] rounded-xl border border-[#E8E6E3] overflow-hidden bg-[#e5e5e5]"
+                  className="relative w-full aspect-[4/3] rounded-xl border border-[#E6EAF0] overflow-hidden bg-[#e5e5e5]"
                 >
                   <Image
                     src={imageUrl}
@@ -60,7 +60,7 @@ export default function CaseStudiesPage() {
                 "";
               return (
                 <Reveal key={study.slug} className="reveal">
-                  <article className="group w-full bg-white border border-[#E8E6E3] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#1E3A8A] overflow-hidden">
+                  <article className="group w-full bg-white border border-[#E6EAF0] rounded-xl transition-safe hover:-translate-y-[6px] hover:shadow-lg hover:border-[#1E3A8A] overflow-hidden">
                     <div className="relative w-full aspect-[4/3] bg-[#e5e5e5] overflow-hidden">
                       <Image
                         src={imageUrl}
@@ -71,18 +71,18 @@ export default function CaseStudiesPage() {
                         loading="lazy"
                         decoding="async"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A8A]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-semibold text-[#0A0A0A] mb-2">{study.name}</h3>
-                      <p className="text-xl font-medium text-[#0A0A0A] mb-3">{study.headline}</p>
-                      <p className="text-base leading-relaxed text-[#5F5F5F] mb-6">
+                      <h3 className="text-2xl font-semibold text-[#0B1220] mb-2">{study.name}</h3>
+                      <p className="text-xl font-medium text-[#0B1220] mb-3">{study.headline}</p>
+                      <p className="text-base leading-relaxed text-[#5B6473] mb-6">
                         {study.summary}
                       </p>
 
                       <Link
                         href={`/case-studies/${study.slug}`}
-                        className="inline-flex items-center text-sm font-medium text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-colors"
+                        className="inline-flex items-center text-sm font-medium text-[#0B1220] hover:underline hover:decoration-[#1E3A8A] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8B4E6] focus:ring-offset-white rounded transition-colors"
                       >
                         View playbook →
                       </Link>

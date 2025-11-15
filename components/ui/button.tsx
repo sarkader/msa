@@ -28,18 +28,17 @@ function getButtonClasses(variant: ButtonVariant = "primary", size: ButtonSize =
     size === "large"
       ? "px-8 py-5 text-base font-medium rounded-full"
       : "px-6 py-3 text-sm font-medium rounded-lg";
-  const base = `inline-flex items-center justify-center ${baseSize} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#111111] focus:ring-offset-white transition-safe shadow-sm hover:shadow-lg`;
+  const base = `inline-flex items-center justify-center ${baseSize} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8B4E6] focus:ring-offset-white transition-safe shadow-sm hover:shadow-lg`;
 
   if (variant === "primary") {
-    // Default monochrome
-    return `${base} text-white bg-[#111111] hover:bg-[#000000]`;
+    return `${base} text-white bg-[#1E3A8A] hover:bg-[#1E40AF]`;
   }
 
   if (variant === "secondary") {
-    return `${base} text-[#111111] border border-[#E8E6E3] hover:border-[#111111] hover:text-[#000000] bg-transparent`;
+    return `${base} text-[#0B1220] border border-[#E6EAF0] hover:bg-[rgba(30,58,138,0.06)] bg-transparent`;
   }
 
-  return `${base} text-[#5F5F5F] hover:text-[#111111] bg-transparent shadow-none hover:shadow-none`;
+  return `${base} text-[#5B6473] hover:text-[#0B1220] bg-transparent shadow-none hover:shadow-none`;
 }
 
 export default function Button({

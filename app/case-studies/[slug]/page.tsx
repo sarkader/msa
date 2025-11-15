@@ -41,9 +41,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
   const timelineData = study.timeline.map((item) => item.revenue);
 
   return (
-    <div className="min-h-screen bg-[#F7F5F2]">
+    <div className="min-h-screen bg-[#F8FAFC]">
       {/* Hero with full-bleed image */}
-      <section className="relative section-gap-xxl border-b border-[#E8E6E3] overflow-hidden">
+      <section className="relative section-gap-xxl border-b border-[#E6EAF0] overflow-hidden">
         {/* Full-bleed header image with capped height and masked gradient */}
         <div
           className="absolute inset-0 -z-10 h-[400px] md:h-[500px] overflow-hidden"
@@ -67,17 +67,17 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8">
           <Link
             href="/case-studies"
-            className="inline-flex items-center text-sm font-medium text-[#5F5F5F] hover:text-[#0A0A0A] hover:underline hover:decoration-[#1E3A8A] mb-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1E3A8A] focus:ring-offset-white rounded transition-safe"
+            className="inline-flex items-center text-sm font-medium text-[#5B6473] hover:text-[#0B1220] hover:underline hover:decoration-[#1E3A8A] mb-8 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#A8B4E6] focus:ring-offset-white rounded transition-safe"
           >
             ← Back to case studies
           </Link>
 
           <Reveal className="reveal max-w-3xl">
-            <p className="eyebrow mb-4 text-[#5F5F5F]">{study.offerType}</p>
-            <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A] mb-6">
+            <p className="eyebrow mb-4">{study.offerType}</p>
+            <h1 className="text-[clamp(2.5rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6">
               {study.headline}
             </h1>
-            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5F5F5F]">
+            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473]">
               {study.summary}
             </p>
           </Reveal>
@@ -90,9 +90,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           {/* Main content (3 columns) */}
           <div className="lg:col-span-3 space-y-16">
             {/* Snapshot */}
-            <section className="border-b border-[#E8E6E3] pb-16">
+            <section className="border-b border-[#E6EAF0] pb-16">
               <Reveal className="reveal mb-12">
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A]">
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0B1220]">
                   Snapshot
                 </h2>
               </Reveal>
@@ -100,45 +100,45 @@ export default async function CaseStudyDetailPage({ params }: Props) {
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <Reveal className="reveal">
                   <div>
-                    <p className="text-sm font-medium text-[#5F5F5F] mb-2 uppercase tracking-wide">
+                    <p className="text-sm font-medium text-[#5B6473] mb-2 uppercase tracking-wide">
                       Before
                     </p>
-                    <p className="text-3xl font-semibold text-[#0A0A0A]">{study.metrics.before}</p>
+                    <p className="text-3xl font-semibold text-[#0B1220]">{study.metrics.before}</p>
                   </div>
                 </Reveal>
                 <Reveal className="reveal">
                   <div>
-                    <p className="text-sm font-medium text-[#5F5F5F] mb-2 uppercase tracking-wide">
+                    <p className="text-sm font-medium text-[#5B6473] mb-2 uppercase tracking-wide">
                       After
                     </p>
-                    <p className="text-3xl font-semibold text-[#0A0A0A]">{study.metrics.after}</p>
+                    <p className="text-3xl font-semibold text-[#0B1220]">{study.metrics.after}</p>
                   </div>
                 </Reveal>
                 <Reveal className="reveal">
                   <div>
-                    <p className="text-sm font-medium text-[#5F5F5F] mb-2 uppercase tracking-wide">
+                    <p className="text-sm font-medium text-[#5B6473] mb-2 uppercase tracking-wide">
                       Timeline
                     </p>
-                    <p className="text-3xl font-semibold text-[#0A0A0A]">
+                    <p className="text-3xl font-semibold text-[#0B1220]">
                       {study.metrics.timeline}
                     </p>
                   </div>
                 </Reveal>
                 <Reveal className="reveal">
                   <div>
-                    <p className="text-sm font-medium text-[#5F5F5F] mb-2 uppercase tracking-wide">
+                    <p className="text-sm font-medium text-[#5B6473] mb-2 uppercase tracking-wide">
                       ROI
                     </p>
-                    <p className="text-3xl font-semibold text-[#0A0A0A]">{study.metrics.roi}</p>
+                    <p className="text-3xl font-semibold text-[#1E3A8A]">{study.metrics.roi}</p>
                   </div>
                 </Reveal>
               </div>
             </section>
 
             {/* Growth timeline */}
-            <section className="border-b border-[#E8E6E3] pb-16">
+            <section className="border-b border-[#E6EAF0] pb-16">
               <Reveal className="reveal mb-12">
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A]">
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0B1220]">
                   Growth Timeline
                 </h2>
               </Reveal>
@@ -148,7 +148,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 <div className="relative">
                   {/* Vertical line */}
                   <div
-                    className="absolute left-3 top-0 bottom-0 w-px bg-[#E8E6E3]"
+                    className="absolute left-3 top-0 bottom-0 w-px bg-[#E6EAF0]"
                     aria-hidden="true"
                   />
                   <div className="space-y-6 relative">
@@ -160,12 +160,12 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                           {/* Content */}
                           <div className="flex-1 pt-0">
                             <div className="flex items-baseline gap-3 mb-1">
-                              <p className="text-sm font-semibold text-[#0A0A0A]">{item.date}</p>
+                              <p className="text-sm font-semibold text-[#0B1220]">{item.date}</p>
                               <p className="text-lg font-semibold text-[#1E3A8A]">
                                 ${item.revenue.toLocaleString()}
                               </p>
                             </div>
-                            <p className="text-sm text-[#5F5F5F]">{item.note}</p>
+                            <p className="text-sm text-[#5B6473]">{item.note}</p>
                           </div>
                         </div>
                       </Reveal>
@@ -191,9 +191,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </section>
 
             {/* What we changed */}
-            <section className="border-b border-[#E8E6E3] pb-16">
+            <section className="border-b border-[#E6EAF0] pb-16">
               <Reveal className="reveal mb-12">
-                <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A]">
+                <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0B1220]">
                   What We Changed
                 </h2>
               </Reveal>
@@ -205,7 +205,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                       <span className="text-[#1E3A8A] mt-2 flex-shrink-0" aria-hidden="true">
                         •
                       </span>
-                      <span className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#0A0A0A]">
+                      <span className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#0B1220]">
                         {lever}
                       </span>
                     </li>
@@ -216,9 +216,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
             {/* Visual gallery */}
             {gallery.length > 0 && (
-              <section className="border-b border-[#E8E6E3] pb-16">
+              <section className="border-b border-[#E6EAF0] pb-16">
                 <Reveal className="reveal mb-12">
-                  <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A]">
+                  <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0B1220]">
                     Visual Gallery
                   </h2>
                 </Reveal>
@@ -226,7 +226,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {gallery.map((imageUrl) => (
                     <Reveal key={imageUrl} className="reveal">
-                      <div className="relative w-full aspect-[4/3] rounded-xl border border-[#E8E6E3] overflow-hidden bg-[#e5e5e5]">
+                      <div className="relative w-full aspect-[4/3] rounded-xl border border-[#E6EAF0] overflow-hidden bg-[#e5e5e5]">
                         <Image
                           src={imageUrl}
                           alt={`${study.name} gallery image`}
@@ -244,7 +244,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             )}
 
             {/* Testimonial */}
-            <section className="border-b border-[#E8E6E3] pb-16">
+            <section className="border-b border-[#E6EAF0] pb-16">
               <Reveal className="reveal max-w-3xl">
                 <blockquote className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
                   {/* Avatar placeholder */}
@@ -262,12 +262,12 @@ export default async function CaseStudyDetailPage({ params }: Props) {
                     </div>
                   </div>
                   <div className="flex-1">
-                    <p className="text-[clamp(1.5rem,3vw,2rem)] leading-relaxed text-[#0A0A0A] mb-6 font-medium">
+                    <p className="text-[clamp(1.5rem,3vw,2rem)] leading-relaxed text-[#0B1220] mb-6 font-medium">
                       &ldquo;{study.testimonial.quote}&rdquo;
                     </p>
-                    <footer className="text-lg text-[#5F5F5F]">
+                    <footer className="text-lg text-[#5B6473]">
                       —{" "}
-                      <cite className="not-italic font-semibold text-[#0A0A0A]">
+                      <cite className="not-italic font-semibold text-[#0B1220]">
                         {study.testimonial.author}
                       </cite>
                     </footer>
@@ -281,11 +281,11 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           <aside className="hidden lg:block lg:col-span-1">
             <div className="sticky" style={{ top: "96px" }}>
               <Reveal className="reveal">
-                <div className="bg-white border border-[#E8E6E3] rounded-xl p-8 shadow-lg">
-                  <h3 className="text-xl font-semibold text-[#0A0A0A] mb-4">
+                <div className="bg-white border border-[#E6EAF0] rounded-xl p-8 shadow-lg">
+                  <h3 className="text-xl font-semibold text-[#0B1220] mb-4">
                     Book a call about a similar outcome
                   </h3>
-                  <p className="text-sm leading-relaxed text-[#5F5F5F] mb-6">
+                  <p className="text-sm leading-relaxed text-[#5B6473] mb-6">
                     Let&apos;s discuss how we can help you achieve similar results.
                   </p>
                   <Button href="/book" variant="primary" className="w-full">
@@ -299,13 +299,13 @@ export default async function CaseStudyDetailPage({ params }: Props) {
       </div>
 
       {/* CTA panel (mobile and fallback) */}
-      <section className="section-gap-xxl bg-white border-t border-[#E8E6E3] lg:hidden">
+      <section className="section-gap-xxl bg-white border-t border-[#E6EAF0] lg:hidden">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal max-w-2xl mx-auto text-center bg-[#F7F5F2] rounded-2xl p-12 border border-[#E8E6E3] shadow-lg">
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0A0A0A] mb-6">
+          <Reveal className="reveal max-w-2xl mx-auto text-center bg-[#F8FAFC] rounded-2xl p-12 border border-[#E6EAF0] shadow-lg">
+            <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-[#0B1220] mb-6">
               Book a call about a similar outcome
             </h2>
-            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5F5F5F] mb-10">
+            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-[#5B6473] mb-10">
               Let&apos;s discuss how we can help you achieve similar results.
             </p>
             <Button href="/book" variant="primary">
