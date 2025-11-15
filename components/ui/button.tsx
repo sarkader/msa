@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "subtle";
+type ButtonVariant = "primary" | "secondary" | "subtle" | "ghost";
 type ButtonSize = "default" | "large";
 
 type BaseButtonProps = {
@@ -36,6 +36,10 @@ function getButtonClasses(variant: ButtonVariant = "primary", size: ButtonSize =
 
   if (variant === "secondary") {
     return `${base} text-[#0B1220] border border-[#E6EAF0] hover:bg-[rgba(30,58,138,0.06)] bg-transparent`;
+  }
+
+  if (variant === "ghost") {
+    return `${base} text-white border border-white/80 hover:border-white hover:bg-white/10 bg-transparent shadow-none hover:shadow-none`;
   }
 
   return `${base} text-[#5B6473] hover:text-[#0B1220] bg-transparent shadow-none hover:shadow-none`;

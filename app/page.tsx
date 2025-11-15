@@ -51,37 +51,10 @@ export default function Home() {
               </Button>
             </div>
           </Reveal>
-
-          {/* Stats row */}
-          <Reveal className="reveal w-full max-w-3xl mx-auto mt-8">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-12 border-t border-[#E6EAF0]">
-              <div>
-                <p className="text-3xl font-semibold text-[#0B1220] mb-2">12+</p>
-                <p className="text-sm text-[#5B6473]">Active Partners</p>
-              </div>
-              <div className="flex items-center justify-center">
-                <span className="text-[#a3a3a3]">•</span>
-              </div>
-              <div>
-                <p className="text-3xl font-semibold text-[#0B1220] mb-2">$50K→$110K</p>
-                <p className="text-sm text-[#5B6473]">Largest monthly jump</p>
-              </div>
-              <div className="flex items-center justify-center sm:hidden">
-                <span className="text-[#a3a3a3]">•</span>
-              </div>
-              <div className="flex items-center justify-center hidden sm:flex">
-                <span className="text-[#a3a3a3]">•</span>
-              </div>
-              <div>
-                <p className="text-3xl font-semibold text-[#1E3A8A] mb-2">2.7×</p>
-                <p className="text-sm text-[#5B6473]">Average ROI</p>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 
-      {/* Credibility/value band */}
+      {/* Credibility/value band (stats) */}
       <section className="relative py-6 md:py-8 bg-[rgba(30,58,138,0.04)] border-t border-b border-[#E6EAF0]">
         <div className="container-tight px-4 sm:px-6 lg:px-8">
           <Reveal className="reveal">
@@ -89,17 +62,15 @@ export default function Home() {
               <span className="eyebrow text-sm">Results</span>
               <div className="flex items-center gap-4 md:gap-6 flex-wrap justify-center sm:justify-end">
                 <span className="text-sm md:text-base text-[#0B1220] font-medium">
-                  Muslim Settify 50k/mo
+                  Active partners 12+
                 </span>
-                <span className="text-[#a3a3a3]">•</span>
-                <span className="text-sm md:text-base text-[#0B1220] font-medium">Aqib 15k+</span>
                 <span className="text-[#a3a3a3]">•</span>
                 <span className="text-sm md:text-base text-[#0B1220] font-medium">
-                  Ustadh A. Haqqan 40k+
+                  Highest monthly jump $50k → $110k
                 </span>
-                <span className="hidden md:inline text-[#a3a3a3]">•</span>
-                <span className="inline-flex items-center px-3 py-1 text-xs font-medium text-[#0B1220] border border-[#E6EAF0] rounded-full bg-white">
-                  90‑Day Guarantee
+                <span className="text-[#a3a3a3]">•</span>
+                <span className="text-sm md:text-base text-[#0B1220] font-medium">
+                  Avg ROI 2.7×
                 </span>
               </div>
             </div>
@@ -547,22 +518,47 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="relative section-gap-xxl overflow-hidden bg-[#1E3A8A]">
+      <section
+        className="relative section-gap-xxl overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(135deg, #1E3A8A 0%, #1E40AF 100%), radial-gradient(circle at 50% 50%, rgba(30, 64, 175, 0.3) 0%, transparent 70%)",
+        }}
+      >
+        {/* Subtle noise/texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+          aria-hidden="true"
+        />
         <div className="container-tight relative z-10 px-4 sm:px-6 lg:px-8">
-          <Reveal className="reveal max-w-3xl mx-auto text-center bg-white/95 backdrop-blur-sm rounded-2xl p-16 shadow-2xl border border-white/20">
-            <h2 className="text-[clamp(2rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-white mb-6">
-              Ready to scale?
+          <Reveal className="reveal max-w-3xl mx-auto text-center">
+            <h2 className="text-[clamp(3rem,6vw,4rem)] font-semibold leading-tight tracking-tight text-white mb-6">
+              Ready to scale with a proven partner?
             </h2>
-            <p className="text-[clamp(1.125rem,1.6vw,1.25rem)] leading-relaxed text-white/90 mb-10">
-              Apply now and let&apos;s double your revenue together.
+            <p className="text-lg md:text-xl leading-relaxed text-white/95 mb-10">
+              We install the systems that move revenue—offers, funnels, appointments, and follow‑up.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="/book" variant="primary">
-                Book Call
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <Button
+                href="/book"
+                variant="primary"
+                className="bg-white text-[#1E3A8A] hover:bg-white/95 hover:text-[#1E40AF] focus:ring-white/50"
+              >
+                Book a call
               </Button>
-              <Button href="#case-studies" variant="secondary">
+              <Button href="#case-studies" variant="ghost">
                 See case studies
               </Button>
+            </div>
+            <div className="flex items-center justify-center gap-3 text-sm text-white/80">
+              <span>90‑day guarantee</span>
+              <span>•</span>
+              <span>No price on site</span>
+              <span>•</span>
+              <span>Built for Muslim founders</span>
             </div>
           </Reveal>
         </div>

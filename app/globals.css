@@ -15,8 +15,6 @@
   --accent-700: #1b3380;
   --accent-300: #a8b4e6;
   --accent-hover: #1e40af;
-  --accent-emerald: #0f766e;
-  --accent-emerald-hover: #0d6361;
 }
 
 @theme inline {
@@ -187,26 +185,6 @@ body {
   .hero-backdrop::after {
     animation: none;
   }
-}
-
-/* Emerald accent utility for CTAs */
-.emerald-accent {
-  background-color: var(--accent-emerald);
-}
-
-.emerald-accent:hover {
-  background-color: var(--accent-emerald-hover);
-}
-
-/* Higher specificity to override button styles */
-button.emerald-accent,
-a.emerald-accent {
-  background-color: var(--accent-emerald);
-}
-
-button.emerald-accent:hover,
-a.emerald-accent:hover {
-  background-color: var(--accent-emerald-hover);
 }
 
 /* Motion-safe transitions */
