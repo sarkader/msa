@@ -135,90 +135,12 @@ body {
   }
 }
 
-/* Hero backdrop utility */
-.hero-backdrop {
+/* Hero background - always visible */
+.hero-bg {
   position: absolute;
   inset: 0;
-  z-index: -20;
-}
-
-.hero-backdrop::before,
-.hero-backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
+  z-index: 0;
   pointer-events: none;
-}
-
-.hero-backdrop::before {
-  background:
-    radial-gradient(circle at 25% 35%, rgba(27, 51, 128, 0.18) 0%, transparent 55%),
-    radial-gradient(circle at 75% 65%, rgba(30, 58, 138, 0.15) 0%, transparent 50%),
-    conic-gradient(
-      from 180deg at 50% 50%,
-      rgba(30, 58, 138, 0.12) 0deg,
-      transparent 120deg,
-      rgba(30, 64, 175, 0.1) 240deg,
-      transparent 360deg
-    );
-  filter: blur(32px);
-  transform: scale(1.1);
-  opacity: 0.9;
-}
-
-.hero-backdrop::after {
-  background: conic-gradient(
-    from 45deg at 80% 20%,
-    rgba(30, 58, 138, 0.1) 0deg,
-    transparent 90deg,
-    rgba(30, 64, 175, 0.08) 180deg,
-    transparent 270deg,
-    rgba(27, 51, 128, 0.1) 360deg
-  );
-  mask-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 1) 0%, transparent 60%);
-  -webkit-mask-image: radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 1) 0%, transparent 60%);
-  opacity: 0.25;
-}
-
-/* Motion-safe animation for hero backdrop */
-@keyframes heroBackdropDrift {
-  0% {
-    transform: translate(0, 0) scale(1.1);
-    opacity: 0.9;
-  }
-  50% {
-    transform: translate(2px, -2px) scale(1.11);
-    opacity: 0.92;
-  }
-  100% {
-    transform: translate(0, 0) scale(1.1);
-    opacity: 0.9;
-  }
-}
-
-@keyframes heroBackdropDriftAfter {
-  0% {
-    opacity: 0.25;
-    transform: translate(0, 0);
-  }
-  50% {
-    opacity: 0.27;
-    transform: translate(-1px, 1px);
-  }
-  100% {
-    opacity: 0.25;
-    transform: translate(0, 0);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .hero-backdrop::before {
-    animation: heroBackdropDrift 20s ease-in-out infinite;
-  }
-
-  .hero-backdrop::after {
-    animation: heroBackdropDriftAfter 25s ease-in-out infinite;
-  }
 }
 
 /* Motion-safe transitions */
@@ -266,19 +188,21 @@ body {
 .scenario-tab-label {
   display: inline-flex;
   align-items: center;
-  padding: 0.75rem 1.5rem;
+  padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 600;
   color: #5b6473;
   background: transparent;
   border: 1px solid #e6eaf0;
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition:
     color 0.2s,
     background 0.2s,
-    border-color 0.2s;
+    border-color 0.2s,
+    box-shadow 0.2s;
   margin-right: 0.5rem;
+  position: relative;
 }
 
 .scenario-tab-label:hover {
@@ -295,17 +219,25 @@ body {
 .scenario-tabs-radio:checked + .scenario-tab-label {
   color: #0b1220;
   background: #ffffff;
-  border-color: #e6eaf0;
-  border-bottom-color: transparent;
+  border-color: #1e3a8a;
+  box-shadow: 0 2px 4px rgba(30, 58, 138, 0.1);
+}
+
+.scenario-tabs-radio:checked + .scenario-tab-label::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: #1e3a8a;
+  border-radius: 1px;
 }
 
 .scenario-tab-panel {
   display: none;
-  padding: 2rem;
-  background: #ffffff;
-  border: 1px solid #e6eaf0;
-  border-top: none;
-  border-radius: 0 0 0.75rem 0.75rem;
+  padding: 1.5rem 0;
 }
 
 /* Show first panel by default (lower specificity first) */
@@ -341,27 +273,14 @@ body {
   .scenario-tab-label {
     padding: 0.5rem 1rem;
     font-size: 0.8125rem;
-    border-radius: 0.375rem;
     margin-bottom: 0.5rem;
   }
 
-  .scenario-tabs-radio:checked + .scenario-tab-label {
-    border-bottom-color: #e6eaf0;
+  .scenario-tabs-radio:checked + .scenario-tab-label::after {
+    display: none;
   }
 
   .scenario-tab-panel {
-    border-top: 1px solid #e6eaf0;
-    border-radius: 0.375rem;
-    margin-top: 0.5rem;
-    padding: 1.5rem;
-  }
-
-  .scenario-tab-panel > div {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .scenario-tab-panel > div > div {
-    width: 100%;
+    padding: 1rem 0;
   }
 }
