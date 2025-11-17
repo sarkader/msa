@@ -4,6 +4,7 @@ import Button from "@/components/ui/button";
 import Reveal from "@/components/ui/reveal";
 import SectionHeader from "@/components/ui/section-header";
 import Sparkline from "@/components/ui/sparkline";
+import { AnimatedGradientDemo } from "../components/ui/animated-gradient-demo";
 import { caseStudies } from "@/data/case-studies";
 
 const caseStudyImages = [
@@ -54,6 +55,20 @@ export default function Home() {
               </Button>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Animated Gradient Demo */}
+      <section className="relative w-full min-h-[480px] py-12">
+        <div className="site-container">
+          <Reveal className="reveal">
+            <h2 className="mb-6 text-2xl md:text-3xl font-semibold tracking-tight">
+              Animated Gradient Demo
+            </h2>
+          </Reveal>
+        </div>
+        <div className="relative">
+          <AnimatedGradientDemo />
         </div>
       </section>
 
