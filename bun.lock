@@ -24,6 +24,7 @@
         "typescript": "^5",
       },
       "optionalDependencies": {
+        "@tailwindcss/oxide-linux-x64-gnu": "^4.1.17",
         "lightningcss-linux-x64-gnu": "^1.28.0",
       },
     },
@@ -76,6 +77,8 @@
     "@tailwindcss/oxide": ["@tailwindcss/oxide@4.1.17", "", { "optionalDependencies": { "@tailwindcss/oxide-darwin-arm64": "4.1.17" } }, ""],
 
     "@tailwindcss/oxide-darwin-arm64": ["@tailwindcss/oxide-darwin-arm64@4.1.17", "", { "os": "darwin", "cpu": "arm64" }, ""],
+
+    "@tailwindcss/oxide-linux-x64-gnu": ["@tailwindcss/oxide-linux-x64-gnu@4.1.17", "", { "os": "linux", "cpu": "x64" }, "sha512-M3XZuORCGB7VPOEDH+nzpJ21XPvK5PyjlkSFkFziNHGLc5d6g3di2McAAblmaSUNl8IOmzYwLx9NsE7bplNkwQ=="],
 
     "@tailwindcss/postcss": ["@tailwindcss/postcss@4.1.17", "", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "@tailwindcss/node": "4.1.17", "@tailwindcss/oxide": "4.1.17", "postcss": "^8.4.41", "tailwindcss": "4.1.17" } }, ""],
 
