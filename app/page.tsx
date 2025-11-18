@@ -26,8 +26,29 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-12 md:py-20 bg-white">
-        <div className="site-container">
+      <section className="relative py-12 md:py-20 bg-white overflow-hidden">
+        {/* Professional gradient background with light streaks */}
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+          {/* Base gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#F8FAFC] via-white to-[#F0F4F8]" />
+          
+          {/* Animated gradient orbs */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#1E3A8A]/10 rounded-full blur-3xl hero-orb-1" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#1E40AF]/8 rounded-full blur-3xl hero-orb-2" />
+          
+          {/* Light streaks */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#1E3A8A]/20 to-transparent" />
+            <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#A8B4E6]/15 to-transparent" />
+            <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#1E40AF]/15 to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#1E3A8A]/20 to-transparent" />
+          </div>
+          
+          {/* Subtle radial gradient for depth */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-gradient-radial from-[#1E3A8A]/5 via-transparent to-transparent rounded-full blur-3xl" />
+        </div>
+        
+        <div className="site-container relative z-10">
           <div className="max-w-5xl mx-auto text-center">
             <Reveal className="reveal">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0B1220] mb-6 leading-tight">
