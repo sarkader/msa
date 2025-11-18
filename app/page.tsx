@@ -78,7 +78,7 @@ export default function Home() {
             <Reveal className="reveal">
               <VSLPlayer
                 src={process.env.NEXT_PUBLIC_VSL_VIDEO_URL || "/vsl-video.mp4"}
-                poster={process.env.NEXT_PUBLIC_VSL_POSTER_URL}
+                {...(process.env.NEXT_PUBLIC_VSL_POSTER_URL && { poster: process.env.NEXT_PUBLIC_VSL_POSTER_URL })}
                 className="shadow-2xl"
               />
             </Reveal>
