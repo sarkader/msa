@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
+import type React from "react";
 import { AnimatedGradient } from "./animated-gradient-with-svg";
 
 type CardProps = {
@@ -39,10 +39,7 @@ const Card: React.FC<CardProps> = ({ title, value, subtitle, colors, delay }) =>
         initial="hidden"
         animate="show"
       >
-        <motion.h3
-          className="text-sm sm:text-base md:text-lg text-foreground"
-          variants={item}
-        >
+        <motion.h3 className="text-sm sm:text-base md:text-lg text-foreground" variants={item}>
           {title}
         </motion.h3>
         <motion.p

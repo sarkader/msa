@@ -1,4 +1,4 @@
-import { useState, useEffect, RefObject } from "react";
+import { type RefObject, useEffect, useState } from "react";
 
 type Dim = { width: number; height: number };
 
@@ -30,4 +30,3 @@ export function useDimensions(ref: RefObject<HTMLElement | SVGElement>): Dim {
 
   return d;
 }
-
