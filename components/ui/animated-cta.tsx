@@ -23,7 +23,7 @@ export function AnimatedCTA({
   const variantClasses =
     variant === "primary"
       ? "bg-[#1E3A8A] hover:bg-[#1E40AF] text-white shadow-lg hover:shadow-xl animate-pulse-glow"
-      : "bg-white hover:bg-white/90 text-[#1E3A8A] border-2 border-[#1E3A8A] shadow-md hover:shadow-lg";
+      : "bg-white hover:bg-white/95 text-[#1E3A8A] border-2 border-white shadow-lg hover:shadow-xl font-bold";
 
   return (
     <motion.div
@@ -41,13 +41,17 @@ export function AnimatedCTA({
       >
         {/* Shimmer effect overlay - optimized with CSS animation */}
         <div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-shimmer"
+          className={`absolute inset-0 bg-gradient-to-r from-transparent ${
+            variant === "primary" ? "via-white/30" : "via-[#1E3A8A]/20"
+          } to-transparent -skew-x-12 animate-shimmer`}
           style={{ willChange: "transform" }}
         />
 
         {/* Pulse ring animation - reduced to 1 ring for performance */}
         <div
-          className="absolute inset-0 rounded-full border-2 border-white/40 animate-pulse-ring"
+          className={`absolute inset-0 rounded-full border-2 ${
+            variant === "primary" ? "border-white/40" : "border-[#1E3A8A]/30"
+          } animate-pulse-ring`}
           style={{ willChange: "transform, opacity" }}
         />
 
