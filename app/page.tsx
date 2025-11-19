@@ -72,7 +72,7 @@ export default function Home() {
             </Reveal>
 
             <Reveal className="reveal mb-6">
-              <AnimatedCTA href="#booking" variant="primary">
+              <AnimatedCTA href="/book" variant="primary">
                 Book Your Consultation
               </AnimatedCTA>
             </Reveal>
@@ -379,7 +379,7 @@ export default function Home() {
             <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
               We're so confident in our system that we put our money where our mouth is. You have nothing to lose and everything to gain.
             </p>
-            <AnimatedCTA href="#booking" variant="secondary">
+            <AnimatedCTA href="/book" variant="secondary">
               Book Your Risk-Free Consultation
             </AnimatedCTA>
           </Reveal>
@@ -387,7 +387,7 @@ export default function Home() {
       </section>
 
       {/* Booking Section - Moved above FAQs for priority */}
-      <section id="booking" className="py-16 md:py-24 bg-white border-t border-[#E6EAF0]">
+      <section className="py-16 md:py-24 bg-white border-t border-[#E6EAF0]">
         <div className="site-container">
           <Reveal className="reveal text-center max-w-4xl mx-auto mb-12">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B1220] mb-6">
