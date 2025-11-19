@@ -67,7 +67,6 @@ export default function Home() {
               </p>
               {/* Guarantee Badge */}
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#1E3A8A] to-[#1E40AF] text-white rounded-full font-semibold text-base md:text-lg mb-8 shadow-lg">
-                <span>🛡️</span>
                 <span>100% Money-Back Guarantee: If we don't 2× your revenue, we refund your entire fee</span>
               </div>
             </Reveal>
@@ -370,7 +369,6 @@ export default function Home() {
         <div className="site-container">
           <Reveal className="reveal text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center justify-center gap-2 mb-6">
-              <span className="text-4xl">🛡️</span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                 Our Iron-Clad Guarantee
               </h2>
@@ -399,7 +397,6 @@ export default function Home() {
               Book a consultation call below to discuss your business and see how we can help you scale.
             </p>
             <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#1E3A8A] to-[#1E40AF] text-white rounded-full font-semibold text-base md:text-lg mb-6 shadow-lg">
-              <span>🛡️</span>
               <span>100% Money-Back Guarantee if we don't 2× your revenue</span>
             </div>
             <p className="text-base text-[#5B6473] mb-8">
