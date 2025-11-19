@@ -1,6 +1,6 @@
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Instrument_Sans } from "next/font/google";
 import Footer from "@/components/footer";
@@ -13,6 +13,13 @@ const instrumentSans = Instrument_Sans({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export const metadata: Metadata = {
   title: "Muslim Scale Accelerator",
@@ -48,7 +55,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://calendly.com" />
         <link rel="dns-prefetch" href="https://calendly.com" />
       </head>
-      <body className={`${instrumentSans.variable} antialiased`}>
+      <body className={`${instrumentSans.variable} antialiased overflow-x-hidden`}>
         {/* Preload Calendly script early for faster booking section load */}
         <Script
           src="https://assets.calendly.com/assets/external/widget.js"
@@ -56,7 +63,7 @@ export default function RootLayout({
           id="calendly-script"
         />
         <Header />
-        <main>{children}</main>
+        <main className="overflow-x-hidden">{children}</main>
         <Footer />
         <Analytics />
         <SpeedInsights />
