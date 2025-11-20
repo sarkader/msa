@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative py-12 md:py-20 bg-white overflow-hidden">
+      <section className="relative pt-16 pb-24 md:pt-24 md:pb-32 bg-white overflow-hidden">
         {/* Professional gradient mesh background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           {/* Base gradient */}
@@ -56,28 +56,28 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white via-white/80 to-transparent z-[1] pointer-events-none" />
         
         <div className="site-container relative z-10">
-          <div className="max-w-5xl mx-auto text-center">
-            <Reveal className="reveal">
+          <div className="max-w-5xl mx-auto text-center flex flex-col items-center gap-6 md:gap-10">
+            <Reveal className="reveal w-full">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#0B1220] mb-6 leading-tight">
                 Double Your Revenue in 90 Days{" "}
                 <span className="text-[#1E3A8A]">Or Get Every Penny Back</span>
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl text-[#5B6473] mb-6 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-lg md:text-xl lg:text-2xl text-[#5B6473] mb-8 max-w-3xl mx-auto leading-relaxed">
                 We partner with Muslim founders to scale their businesses—courses, consulting, and productized services. No prior experience required.
               </p>
               {/* Guarantee Badge */}
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#1E3A8A] to-[#1E40AF] text-white rounded-full font-semibold text-base md:text-lg mb-8 shadow-lg">
-                <span>100% Money-Back Guarantee: If we don't 2× your revenue, we refund your entire fee</span>
+              <div className="inline-flex items-center justify-center px-4 py-2.5 md:px-6 md:py-3 bg-gradient-to-r from-[#1E3A8A] to-[#1E40AF] text-white rounded-full font-semibold text-xs md:text-lg shadow-lg max-w-[90%] mx-auto leading-normal">
+                <span className="text-center">100% Money-Back Guarantee: If we don't 2× your revenue, we refund your entire fee</span>
               </div>
             </Reveal>
 
-            <Reveal className="reveal mb-6">
+            <Reveal className="reveal w-full">
               <AnimatedCTA href="/book" variant="primary">
                 Book Your Consultation
               </AnimatedCTA>
             </Reveal>
 
-            <Reveal className="reveal">
+            <Reveal className="reveal w-full">
               <div className="flex items-center justify-center gap-2 text-sm text-[#5B6473]">
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map((i) => (
